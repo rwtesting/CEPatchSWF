@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+	<!-- Lower credit bulk. Default bulk=1 results in pawns spawning without ammo -->
+	<Operation Class="PatchOperationAdd">
+		<xpath>Defs/ThingDef[defName="PJ_ImperialCredit"]/statBases</xpath>
+		<value>
+			<Bulk>0</Bulk>
+		</value>
+	</Operation>
+</Patch>
+
