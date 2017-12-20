@@ -1,12 +1,12 @@
-Combat Extended patch for Start Wars Factions (b18).
+Combat Extended compatibility patch for Start Wars Factions (b18).
 
 Unofficial b18 update for the a17 patch by jaeger972 (http://steamcommunity.com/sharedfiles/filedetails/?id=974909952).
 
 Notes:
 - Apparel defaults to Bulk=1.0 and has not been patched (a17 patch uses Bulk=2.0).
-- Set Imperial Credit Bulk to 0 to avoid pawns loading with no ammo.
+- Set Imperial Credit Bulk=0 to avoid pawns loading with no ammo.
 
-Credit for Patch textures and a17 CE patch belong to jaeger972.
+Credit for patch textures and a17 CE patch belong to jaeger972.
 
 Original description (a17, jaeger972):
 
