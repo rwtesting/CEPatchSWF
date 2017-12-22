@@ -15,11 +15,11 @@
     	<success>Always</success>
     	<operations>
       	    <li Class="PatchOperationTest">
-      		<xpath>*/ThingDef[defName="PJ_ATST_Blaster"]/tools</xpath>
+      	    <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/tools</xpath>
         	<success>Invert</success>
       	    </li>
       	    <li Class="PatchOperationAdd">
-      		<xpath>*/ThingDef[defName="PJ_ATST_Blaster"]</xpath>
+      	    <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]</xpath>
         	<value>
           	    <tools />
         	</value>
@@ -29,75 +29,83 @@
 
     <!-- Add tools melee values -->
     <li Class="PatchOperationAdd">
-      <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/tools</xpath>
-      <value>
-        <li Class="CombatExtended.ToolCE">
-          <label>stock</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>9</power>
-          <cooldownTime>1.8</cooldownTime>
-          <commonality>1.5</commonality>
-          <armorPenetration>0.11</armorPenetration>
-          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelblunt</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.118</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelpoke</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Poke</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.086</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-      </value>
+        <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/tools</xpath>
+        <value>
+            <li Class="CombatExtended.ToolCE">
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>1.8</cooldownTime>
+                <commonality>1.5</commonality>
+                <armorPenetration>0.11</armorPenetration>
+                <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelblunt</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.118</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelpoke</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.086</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+        </value>
     </li>
 
     <!-- CE conversion -->
     <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
-      <defName>PJ_ATST_Blaster</defName>
-      <statBases>
-        <Bulk>5.65</Bulk>
-        <SightsEfficiency>0.75</SightsEfficiency>
-        <ShotSpread>0.13</ShotSpread>
-        <SwayFactor>0.89</SwayFactor>
-      </statBases>
-      <Properties>
-          <muzzleFlashScale>12</muzzleFlashScale>
-          <burstShotCount>2</burstShotCount>
-          <defaultProjectile>Bullet_SWBigPlasmaGasCartridge_AP</defaultProjectile>
-          <warmupTime>1.03</warmupTime>
-          <range>27</range>
-          <soundCast>PJ_ATST_Gun</soundCast>
-          <hasStandardCommand>true</hasStandardCommand>
-          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
-          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-          <soundCastTail>GunTail_Heavy</soundCastTail>
-      </Properties>
-      <weaponTags>
-      </weaponTags>
-      <AmmoUser>
-  	   <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
-  	   <magazineSize>6</magazineSize>
-  	   <reloadTime>3</reloadTime>
-      </AmmoUser>
-      <FireModes>
+        <defName>PJ_ATST_Blaster</defName>
+        <statBases>
+            <Bulk>5.65</Bulk>
+            <SightsEfficiency>0.75</SightsEfficiency>
+            <ShotSpread>0.13</ShotSpread>
+            <SwayFactor>0.89</SwayFactor>
+        </statBases>
+        <weaponTags>
+        </weaponTags>
+        <AmmoUser>
+  	    <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
+  	    <reloadTime>3</reloadTime>
+  	    <magazineSize>6</magazineSize>
+        </AmmoUser>
+        <FireModes>
   	   <aiUseBurstMode>FALSE</aiUseBurstMode>
-      </FireModes>
+        </FireModes>
+    </li>
+
+    <li Class="PatchOperationAttributeSet">
+    <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/verbs/li</xpath>
+        <attribute>Class</attribute>
+        <value>CombatExtended.VerbPropertiesCE</value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/verbs/li/verbClass</xpath>
+    <value>
+        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+    </value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/verbs/li/defaultProjectile</xpath>
+    <value>
+        <defaultProjectile>Bullet_SWBigPlasmaGasCartridge_AP</defaultProjectile>
+    </value>
     </li>
 
     <!-- ========== PJ_ATAT_Blaster ========== -->
@@ -107,11 +115,11 @@
     	<success>Always</success>
     	<operations>
       	    <li Class="PatchOperationTest">
-      		<xpath>*/ThingDef[defName="PJ_ATAT_Blaster"]/tools</xpath>
+      	    <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/tools</xpath>
         	<success>Invert</success>
       	    </li>
       	    <li Class="PatchOperationAdd">
-      		<xpath>*/ThingDef[defName="PJ_ATAT_Blaster"]</xpath>
+      	    <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]</xpath>
         	<value>
           	    <tools />
         	</value>
@@ -121,75 +129,83 @@
 
     <!-- Add tools melee values -->
     <li Class="PatchOperationAdd">
-      <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/tools</xpath>
-      <value>
-        <li Class="CombatExtended.ToolCE">
-          <label>stock</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>9</power>
-          <cooldownTime>1.8</cooldownTime>
-          <commonality>1.5</commonality>
-          <armorPenetration>0.11</armorPenetration>
-          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelblunt</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.118</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelpoke</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Poke</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.086</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-      </value>
+        <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/tools</xpath>
+        <value>
+            <li Class="CombatExtended.ToolCE">
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>1.8</cooldownTime>
+                <commonality>1.5</commonality>
+                <armorPenetration>0.11</armorPenetration>
+                <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelblunt</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.118</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelpoke</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.086</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+        </value>
     </li>
 
     <!-- CE conversion -->
     <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
-      <defName>PJ_ATAT_Blaster</defName>
-      <statBases>
-        <Bulk>5.65</Bulk>
-        <SightsEfficiency>0.75</SightsEfficiency>
-        <ShotSpread>0.13</ShotSpread>
-        <SwayFactor>0.89</SwayFactor>
-      </statBases>
-      <Properties>
-          <warmupTime>1.03</warmupTime>
-          <defaultProjectile>Bullet_SWBigPlasmaGasCartridge</defaultProjectile>
-          <range>27</range>
-          <muzzleFlashScale>42</muzzleFlashScale>
-          <burstShotCount>2</burstShotCount>
-          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
-          <hasStandardCommand>true</hasStandardCommand>
-          <ticksBetweenBurstShots>12</ticksBetweenBurstShots>
-          <soundCastTail>GunTail_Heavy</soundCastTail>
-          <soundCast>PJ_ATST_Gun</soundCast>
-      </Properties>
-      <weaponTags>
-      </weaponTags>
-      <AmmoUser>
-  	   <magazineSize>6</magazineSize>
-  	   <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
-  	   <reloadTime>3</reloadTime>
-      </AmmoUser>
-      <FireModes>
+        <defName>PJ_ATAT_Blaster</defName>
+        <statBases>
+            <Bulk>5.65</Bulk>
+            <SightsEfficiency>0.75</SightsEfficiency>
+            <ShotSpread>0.13</ShotSpread>
+            <SwayFactor>0.89</SwayFactor>
+        </statBases>
+        <weaponTags>
+        </weaponTags>
+        <AmmoUser>
+  	    <reloadTime>3</reloadTime>
+  	    <magazineSize>6</magazineSize>
+  	    <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
+        </AmmoUser>
+        <FireModes>
   	   <aiUseBurstMode>FALSE</aiUseBurstMode>
-      </FireModes>
+        </FireModes>
+    </li>
+
+    <li Class="PatchOperationAttributeSet">
+    <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/verbs/li</xpath>
+        <attribute>Class</attribute>
+        <value>CombatExtended.VerbPropertiesCE</value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/verbs/li/verbClass</xpath>
+    <value>
+        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+    </value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/verbs/li/defaultProjectile</xpath>
+    <value>
+        <defaultProjectile>Bullet_SWBigPlasmaGasCartridge</defaultProjectile>
+    </value>
     </li>
 
     <!-- ========== PJ_Spd_Blaster ========== -->
@@ -199,11 +215,11 @@
     	<success>Always</success>
     	<operations>
       	    <li Class="PatchOperationTest">
-      		<xpath>*/ThingDef[defName="PJ_Spd_Blaster"]/tools</xpath>
+      	    <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/tools</xpath>
         	<success>Invert</success>
       	    </li>
       	    <li Class="PatchOperationAdd">
-      		<xpath>*/ThingDef[defName="PJ_Spd_Blaster"]</xpath>
+      	    <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]</xpath>
         	<value>
           	    <tools />
         	</value>
@@ -213,75 +229,83 @@
 
     <!-- Add tools melee values -->
     <li Class="PatchOperationAdd">
-      <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/tools</xpath>
-      <value>
-        <li Class="CombatExtended.ToolCE">
-          <label>stock</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>9</power>
-          <cooldownTime>1.8</cooldownTime>
-          <commonality>1.5</commonality>
-          <armorPenetration>0.11</armorPenetration>
-          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelblunt</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.118</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelpoke</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Poke</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.086</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-      </value>
+        <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/tools</xpath>
+        <value>
+            <li Class="CombatExtended.ToolCE">
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>1.8</cooldownTime>
+                <commonality>1.5</commonality>
+                <armorPenetration>0.11</armorPenetration>
+                <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelblunt</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.118</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelpoke</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.086</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+        </value>
     </li>
 
     <!-- CE conversion -->
     <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
-      <defName>PJ_Spd_Blaster</defName>
-      <statBases>
-        <Bulk>5.65</Bulk>
-        <SightsEfficiency>0.75</SightsEfficiency>
-        <ShotSpread>0.13</ShotSpread>
-        <SwayFactor>0.89</SwayFactor>
-      </statBases>
-      <Properties>
-          <hasStandardCommand>true</hasStandardCommand>
-          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
-          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
-          <soundCastTail>GunTail_Heavy</soundCastTail>
-          <soundCast>PJ_ATST_Gun</soundCast>
-          <warmupTime>1.03</warmupTime>
-          <defaultProjectile>Bullet_SWPlasmaGasCartridge_AP</defaultProjectile>
-          <range>27</range>
-          <muzzleFlashScale>12</muzzleFlashScale>
-          <burstShotCount>2</burstShotCount>
-      </Properties>
-      <weaponTags>
-      </weaponTags>
-      <AmmoUser>
-  	   <reloadTime>1.2</reloadTime>
-  	   <magazineSize>10</magazineSize>
-  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
-      </AmmoUser>
-      <FireModes>
+        <defName>PJ_Spd_Blaster</defName>
+        <statBases>
+            <Bulk>5.65</Bulk>
+            <SightsEfficiency>0.75</SightsEfficiency>
+            <ShotSpread>0.13</ShotSpread>
+            <SwayFactor>0.89</SwayFactor>
+        </statBases>
+        <weaponTags>
+        </weaponTags>
+        <AmmoUser>
+  	    <reloadTime>1.2</reloadTime>
+  	    <magazineSize>10</magazineSize>
+  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+        </AmmoUser>
+        <FireModes>
   	   <aiUseBurstMode>FALSE</aiUseBurstMode>
-      </FireModes>
+        </FireModes>
+    </li>
+
+    <li Class="PatchOperationAttributeSet">
+    <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/verbs/li</xpath>
+        <attribute>Class</attribute>
+        <value>CombatExtended.VerbPropertiesCE</value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/verbs/li/verbClass</xpath>
+    <value>
+        <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+    </value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/verbs/li/defaultProjectile</xpath>
+    <value>
+        <defaultProjectile>Bullet_SWPlasmaGasCartridge_AP</defaultProjectile>
+    </value>
     </li>
 
   </operations>  <!-- end sequence -->

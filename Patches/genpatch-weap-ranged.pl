@@ -424,7 +424,7 @@ foreach $sourcefile (@SOURCEFILES)
 
 # Generate output patch file name
 ($outfile = "$OUTDIR/".basename($sourcefile)) =~ s/(?:-REF)\.[a-z]+$/.xml/i;
-print("Source: $sourcefile\nPatch : $outfile\n");
+print("\nSource: $sourcefile\nPatch : $outfile\n");
 
 # Open source/output files
 my $source =  XMLin($sourcefile, ForceArray => [qw(ThingDef li)])
@@ -449,10 +449,11 @@ EOF
 
 # Step through source xml.
 # Generate patch for each known defName/blaster in the same order.
-my($data, $key, $val);
+my($weapon, $data, $key, $val);
 foreach my $entry ( @{$source->{ThingDef}} )
 {
     next unless exists($entry->{defName}) && exists $CEDATA{$entry->{defName}};
+    $weapon = $entry->{defName};
     $data = $CEDATA{$entry->{defName}};
 
     print OUTFILE (<<EOF);
@@ -463,11 +464,11 @@ foreach my $entry ( @{$source->{ThingDef}} )
     	<success>Always</success>
     	<operations>
       	    <li Class="PatchOperationTest">
-      		<xpath>*/ThingDef[defName="$entry->{defName}"]/tools</xpath>
+      	    <xpath>Defs/ThingDef[defName="$weapon"]/tools</xpath>
         	<success>Invert</success>
       	    </li>
       	    <li Class="PatchOperationAdd">
-      		<xpath>*/ThingDef[defName="$entry->{defName}"]</xpath>
+      	    <xpath>Defs/ThingDef[defName="$weapon"]</xpath>
         	<value>
           	    <tools />
         	</value>
@@ -477,129 +478,96 @@ foreach my $entry ( @{$source->{ThingDef}} )
 
     <!-- Add tools melee values -->
     <li Class="PatchOperationAdd">
-      <xpath>Defs/ThingDef[defName="$entry->{defName}"]/tools</xpath>
-      <value>
-        <li Class="CombatExtended.ToolCE">
-          <label>stock</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>9</power>
-          <cooldownTime>1.8</cooldownTime>
-          <commonality>1.5</commonality>
-          <armorPenetration>0.11</armorPenetration>
-          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelblunt</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Blunt</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.118</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-          <id>barrelpoke</id>
-          <label>barrel</label>
-          <capacities>
-            <li>Poke</li>
-          </capacities>
-          <power>10</power>
-          <cooldownTime>1.9</cooldownTime>
-          <armorPenetration>0.086</armorPenetration>
-          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-        </li>
-      </value>
+        <xpath>Defs/ThingDef[defName="$weapon"]/tools</xpath>
+        <value>
+            <li Class="CombatExtended.ToolCE">
+                <label>stock</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>9</power>
+                <cooldownTime>1.8</cooldownTime>
+                <commonality>1.5</commonality>
+                <armorPenetration>0.11</armorPenetration>
+                <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelblunt</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Blunt</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.118</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+            <li Class="CombatExtended.ToolCE">
+                <id>barrelpoke</id>
+                <label>barrel</label>
+                <capacities>
+                    <li>Poke</li>
+                </capacities>
+                <power>10</power>
+                <cooldownTime>1.9</cooldownTime>
+                <armorPenetration>0.086</armorPenetration>
+                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+            </li>
+        </value>
     </li>
 
     <!-- CE conversion -->
     <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
-      <defName>$entry->{defName}</defName>
-      <statBases>
-        <Bulk>$data->{Bulk}</Bulk>
-        <SightsEfficiency>$data->{SightsEfficiency}</SightsEfficiency>
-        <ShotSpread>$data->{ShotSpread}</ShotSpread>
-        <SwayFactor>$data->{SwayFactor}</SwayFactor>
-      </statBases>
+        <defName>$weapon</defName>
+        <statBases>
+            <Bulk>$data->{Bulk}</Bulk>
+            <SightsEfficiency>$data->{SightsEfficiency}</SightsEfficiency>
+            <ShotSpread>$data->{ShotSpread}</ShotSpread>
+            <SwayFactor>$data->{SwayFactor}</SwayFactor>
+        </statBases>
 EOF
-    # Copy <verbs> node to <Properties> for CE, update verb class
-    if (exists $entry->{verbs} )
-    {
-        print OUTFILE (<<EOF);
-      <Properties>
-EOF
-	while ( ($key,$val) = each %{$entry->{verbs}->{li}->[0]} )
-	{
-	    # Translate
-	    if ($key eq "verbClass")
-	    {
-	        $val = $VERBCLASS 
-	    }
-	    elsif ($key eq "defaultProjectile")
-	    {
-	        $val = $data->{defaultProjectile};
-	    }
-
-	    print OUTFILE (<<EOF);
-          <$key>$val</$key>
-EOF
-         
-	 }
-         print OUTFILE (<<EOF);
-      </Properties>
-EOF
-     }
 
     # Add weapon tags from both source xml and CE data, if any
     #%union = map {$_ => 1} (exists $entry->{weaponTags} ? @{$entry->{weaponTags}->{li}} : (), exists $data->{weaponTags} ? @{$data->{weaponTags}} : ());
     if (exists $data->{weaponTags})
     {
          print OUTFILE (<<EOF);
-      <weaponTags>
+        <weaponTags>
 EOF
 	 foreach $key ( @{$data->{weaponTags}} )
 	 {
 	     print OUTFILE (<<EOF);
-  	   <li>$key</li>
+  	    <li>$key</li>
 EOF
 	 }
 
          print OUTFILE (<<EOF);
-      </weaponTags>
+        </weaponTags>
 EOF
+    }
 
     # Add AmmoUser (CE only)
     if (exists $data->{AmmoUser})
     {
 	print OUTFILE (<<EOF);
-      <AmmoUser>
+        <AmmoUser>
 EOF
 	while ( ($key,$val) = each %{$data->{AmmoUser}} )
 	{
 	print OUTFILE (<<EOF);
-  	   <$key>$val</$key>
+  	    <$key>$val</$key>
 EOF
 	}
 	print OUTFILE (<<EOF);
-      </AmmoUser>
+        </AmmoUser>
 EOF
     }
-    else
-    {
-	print OUTFILE (<<EOF);
-      <AmmoUser />
-EOF
-    }
-
 
     # Add FireModes (CE only)
     if (exists $data->{FireModes})
     {
 	print OUTFILE (<<EOF);
-      <FireModes>
+        <FireModes>
 EOF
 	while ( ($key,$val) = each %{$data->{FireModes}} )
 	{
@@ -608,13 +576,7 @@ EOF
 EOF
 	}
 	print OUTFILE (<<EOF);
-      </FireModes>
-EOF
-    }
-    else
-    {
-	print OUTFILE (<<EOF);
-      <FireModes />
+        </FireModes>
 EOF
     }
 
@@ -623,9 +585,33 @@ EOF
     </li>
 
 EOF
-    }
+    # Update verbs node. Don't use Properties in PatchOperationMakeGunCECompatible
+    # because we don't want to copy the entire verbs node over.
+    if (exists $entry->{verbs} )
+    {
+        print OUTFILE (<<EOF);
+    <li Class="PatchOperationAttributeSet">
+    <xpath>Defs/ThingDef[defName="$weapon"]/verbs/li</xpath>
+        <attribute>Class</attribute>
+        <value>CombatExtended.VerbPropertiesCE</value>
+    </li>
 
-    # Assume we don't need to add comps for AmmoUser/FireModes, since CE op should handle that
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="$weapon"]/verbs/li/verbClass</xpath>
+    <value>
+        <verbClass>$VERBCLASS</verbClass>
+    </value>
+    </li>
+
+    <li Class="PatchOperationReplace">
+    <xpath>Defs/ThingDef[defName="$weapon"]/verbs/li/defaultProjectile</xpath>
+    <value>
+        <defaultProjectile>$data->{defaultProjectile}</defaultProjectile>
+    </value>
+    </li>
+
+EOF
+     }
 }
 
 # Closer
