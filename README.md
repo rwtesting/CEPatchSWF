@@ -1,3 +1,7 @@
+DO NOT USE
+
+----------------
+
 Combat Extended compatibility patch for Start Wars Factions (b18).
 
 Unofficial b18 update for the a17 patch by jaeger972 (http://steamcommunity.com/sharedfiles/filedetails/?id=974909952).
