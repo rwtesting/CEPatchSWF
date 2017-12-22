@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Warning: This will break if original mod moves weapons into diff files.
+         Use a patch sequence for each file to reduce load times. -->
+
+  <Operation Class="PatchOperationSequence">
+  <success>Always</success>
+  <operations>
+
+        <!-- ========== PJ_Vibroaxe ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]/statBases</xpath>
+	    <value>
+                <Bulk>2</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]/tools/li[label="handle"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]/tools/li[label="point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]/tools/li[label="edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="PJ_Vibroaxe"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+        <!-- ========== PJ_Vibrosword ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]/tools/li[label="handle"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]/tools/li[label="point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]/tools/li[label="edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="PJ_Vibrosword"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>1</MeleeCritChance>
+                     <MeleeParryChance>0.75</MeleeParryChance>
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+        <!-- ========== PJ_Vibrocleaver ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]/statBases</xpath>
+	    <value>
+                <Bulk>1.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]/tools/li[label="handle"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]/tools/li[label="point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]/tools/li[label="edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="PJ_Vibrocleaver"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.5</MeleeCritChance>
+                     <MeleeParryChance>0.65</MeleeParryChance>
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+        <!-- ========== PJ_VScythe ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_VScythe"]/statBases</xpath>
+	    <value>
+                <Bulk>2.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="PJ_VScythe"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="PJ_VScythe"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_VScythe"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+                <li>CE_OneHandedWeapon</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="PJ_VScythe"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_VScythe"]/tools/li[label="handle"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_VScythe"]/tools/li[label="point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_VScythe"]/tools/li[label="edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="PJ_VScythe"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>1</MeleeCritChance>
+                     <MeleeParryChance>0.75</MeleeParryChance>
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+        <!-- ========== PJ_Vibrodouble ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]/statBases</xpath>
+	    <value>
+                <Bulk>3.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]/tools/li[label="handle"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]/tools/li[label="second edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]/tools/li[label="edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="PJ_Vibrodouble"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>1</MeleeCritChance>
+                     <MeleeParryChance>0.75</MeleeParryChance>
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+        <!-- ========== PJ_StaffX ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_StaffX"]/statBases</xpath>
+	    <value>
+                <Bulk>3.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="PJ_StaffX"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="PJ_StaffX"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_StaffX"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="PJ_StaffX"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_StaffX"]/tools/li[label="handle"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_StaffX"]/tools/li[label="point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_StaffX"]/tools/li[label="edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="PJ_StaffX"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.65</MeleeCritChance>
+                     <MeleeParryChance>0.4</MeleeParryChance>
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+        <!-- ========== PJ_TStaff ========== -->
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_TStaff"]/statBases</xpath>
+	    <value>
+                <Bulk>3.5</Bulk>
+	    </value>
+	</li>
+
+        <!-- Insert CE weapon tags. Create node if needed -->
+	<li Class="PatchOperationSequence">
+  	<success>Always</success>
+  	<operations>
+    	    <li Class="PatchOperationTest">
+      	        <xpath>Defs/ThingDef[defName="PJ_TStaff"]/weaponTags</xpath>
+      	        <success>Invert</success>
+    	    </li>
+    	    <li Class="PatchOperationAdd">
+      	        <xpath>Defs/ThingDef[defName="PJ_TStaff"]</xpath>
+      	            <value>
+        	        <weaponTags />
+      	            </value>
+    	    </li>
+  	</operations>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_TStaff"]/weaponTags</xpath>
+	    <value>
+                <li>CE_Sidearm</li>
+	    </value>
+	</li>
+
+	<!-- Add CE attribute to all tools entries -->
+	<li Class="PatchOperationAttributeSet">
+	    <xpath>Defs/ThingDef[defName="PJ_TStaff"]/tools/li</xpath>
+	    <attribute>Class</attribute>
+	    <value>CombatExtended.ToolCE</value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_TStaff"]/tools/li[label="handle"]</xpath>
+	    <value>
+		<armorPenetration>0.087</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_TStaff"]/tools/li[label="point"]</xpath>
+	    <value>
+		<armorPenetration>0.35</armorPenetration>
+	    </value>
+	</li>
+
+	<li Class="PatchOperationAdd">
+	    <xpath>Defs/ThingDef[defName="PJ_TStaff"]/tools/li[label="edge"]</xpath>
+	    <value>
+		<armorPenetration>0.231</armorPenetration>
+	    </value>
+	</li>
+
+	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
+         <li Class="PatchOperationAdd">
+             <xpath>Defs/ThingDef[defName="PJ_TStaff"]</xpath>
+             <value>
+                 <equippedStatOffsets>
+                     <MeleeCritChance>0.65</MeleeCritChance>
+                     <MeleeParryChance>0.4</MeleeParryChance>
+                 </equippedStatOffsets>
+             </value>
+         </li>
+
+  </operations>  <!-- end sequence -->
+  </Operation>   <!-- end sequence -->
+
+</Patch>
+

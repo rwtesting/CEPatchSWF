@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ThingDefs>
+
+	   <ThingDef Name="PJ_BaseVibroWeapon" ParentName="BaseMeleeWeapon" Abstract="True">
+		<recipeMaker>
+			<defaultIngredientFilter>
+				<categories>
+				<li>Root</li>
+				</categories>
+				<exceptedThingDefs>
+					<li>Silver</li>
+					<li>Gold</li>
+					<li>WoodLog</li>
+				</exceptedThingDefs>	
+			</defaultIngredientFilter>  	  
+		</recipeMaker>
+        <stuffCategories>
+          <li>Metallic</li>
+        </stuffCategories>
+        <costStuffCount>150</costStuffCount>		
+		<canBeSpawningInventory>false</canBeSpawningInventory>
+		</ThingDef>
+	
+
+		<!-- ============================================================== -->
+
+	
+	
+		<!-- ================== Vibroaxe ==================== -->
+  
+		<ThingDef ParentName="PJ_BaseVibroWeapon">
+		<defName>PJ_Vibroaxe</defName>
+		<label>Vibroaxe (prototype)</label>
+		<description>A cortosis-weave polearm fitted with minature vibrocells.</description>
+		<graphicData>
+			<texPath>Weapons/Vibroaxe</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.3</drawSize>			
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>			
+		</graphicData>
+	    <tickerType>Normal</tickerType>
+		<soundInteract>InteractPistol</soundInteract>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+		
+			<MeleeWeapon_Penetration>0.300</MeleeWeapon_Penetration>
+			<Bulk>2</Bulk>
+			<MarketValue>3000</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>			
+			<WorkToMake>55800</WorkToMake>
+			<Mass>1.8</Mass>
+			<MeleeWeapon_DamageAmount>46</MeleeWeapon_DamageAmount>
+			<DeteriorationRate>0.025</DeteriorationRate>
+			<MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<!-- recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+				<li>FueledSmithy</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker -->
+	<weaponTags>
+      <li>Melee</li>
+		<li>CE_Sidearm</li>
+		<li>CE_OneHandedWeapon</li>
+	</weaponTags>
+     <verbs>
+     <li>
+     <verbClass>Verb_MeleeAttack</verbClass>
+     <hasStandardCommand>true</hasStandardCommand>
+     <meleeDamageDef>PJ_Vibro</meleeDamageDef>
+     </li>
+     </verbs>
+		</ThingDef>
+	
+	<!-- ================== Vibrosword ==================== -->
+		<ThingDef ParentName="PJ_BaseVibroWeapon">
+		<defName>PJ_Vibrosword</defName>
+		<label>Vibrosword (Echani)</label>
+		<description>An Echani cortosis-weave sword fitted with minature vibrocells.</description>
+		<graphicData>
+			<texPath>Weapons/Vibrosword3k</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.5</drawSize>			
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>			
+		</graphicData>
+	    <tickerType>Normal</tickerType>
+		<soundInteract>InteractPistol</soundInteract>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MeleeWeapon_Penetration>0.15</MeleeWeapon_Penetration>
+			<Bulk>1.5</Bulk>
+			<MarketValue>3000</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>			
+			<WorkToMake>55800</WorkToMake>
+			<Mass>1.8</Mass>
+			<MeleeWeapon_DamageAmount>46</MeleeWeapon_DamageAmount>
+			<DeteriorationRate>0.025</DeteriorationRate>
+			<MeleeWeapon_Cooldown>0.90</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<!-- recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+				<li>FueledSmithy</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker -->
+	<weaponTags>
+      <li>Melee</li>
+		<li>CE_Sidearm</li>
+		<li>CE_OneHandedWeapon</li>
+	</weaponTags>
+     <verbs>
+     <li>
+     <verbClass>Verb_MeleeAttack</verbClass>
+     <hasStandardCommand>true</hasStandardCommand>
+     <meleeDamageDef>PJ_Vibro</meleeDamageDef>
+     </li>
+     </verbs>
+		</ThingDef>
+		
+		<!-- ================== Vibro Cleaver ==================== -->
+		<ThingDef ParentName="PJ_BaseVibroWeapon">
+		<defName>PJ_Vibrocleaver</defName>
+		<label>Vibro Cleaver (Mando)</label>
+		<description>A mandalorian cortosis-weave sword fitted with minature vibrocells.</description>
+		<graphicData>
+			<texPath>Weapons/Vibrocleaver</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.6</drawSize>			
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>			
+		</graphicData>
+	    <tickerType>Normal</tickerType>
+		<soundInteract>InteractPistol</soundInteract>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MeleeWeapon_Penetration>0.15</MeleeWeapon_Penetration>
+			<Bulk>1.5</Bulk>
+			<MarketValue>3000</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>			
+			<WorkToMake>55800</WorkToMake>
+			<Mass>1.8</Mass>
+			<MeleeWeapon_DamageAmount>46</MeleeWeapon_DamageAmount>
+			<DeteriorationRate>0.025</DeteriorationRate>
+			<MeleeWeapon_Cooldown>2.0</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<!-- recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+				<li>FueledSmithy</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker -->
+	<weaponTags>
+      <li>Melee</li>
+		<li>CE_Sidearm</li>
+		<li>CE_OneHandedWeapon</li>
+	</weaponTags>
+     <verbs>
+     <li>
+     <verbClass>Verb_MeleeAttack</verbClass>
+     <hasStandardCommand>true</hasStandardCommand>
+     <meleeDamageDef>PJ_Vibro</meleeDamageDef>
+     </li>
+     </verbs>
+		</ThingDef>
+		
+		
+		<!-- ================== Vibro Cleaver ==================== -->
+		<ThingDef ParentName="PJ_BaseVibroWeapon">
+		<defName>PJ_VScythe</defName>
+		<label>Vibro Scythe</label>
+		<description>A modern cortosis-weave scythe-style sword fitted with minature vibrocells.</description>
+		<graphicData>
+			<texPath>Weapons/Scythe</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>1.3</drawSize>			
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>			
+		</graphicData>
+	    <tickerType>Normal</tickerType>
+		<soundInteract>InteractPistol</soundInteract>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MeleeWeapon_Penetration>0.30</MeleeWeapon_Penetration>
+			<Bulk>2.5</Bulk>
+			<MarketValue>3000</MarketValue>
+			<MaxHitPoints>200</MaxHitPoints>			
+			<WorkToMake>55800</WorkToMake>
+			<Mass>1.8</Mass>
+			<MeleeWeapon_DamageAmount>23</MeleeWeapon_DamageAmount>
+			<DeteriorationRate>0.025</DeteriorationRate>
+			<MeleeWeapon_Cooldown>1.2</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<!-- recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+				<li>FueledSmithy</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker -->
+	<weaponTags>
+      <li>Melee</li>
+		<li>CE_Sidearm</li>
+		<li>CE_OneHandedWeapon</li>
+	</weaponTags>
+     <verbs>
+     <li>
+     <verbClass>Verb_MeleeAttack</verbClass>
+     <hasStandardCommand>true</hasStandardCommand>
+     <meleeDamageDef>PJ_Vibro</meleeDamageDef>
+     </li>
+     </verbs>
+		</ThingDef>
+			
+			
+					<!-- ================== Vibro DoubleSword ==================== -->
+		<ThingDef ParentName="PJ_BaseVibroWeapon">
+		<defName>PJ_Vibrodouble</defName>
+		<label>Vibro Double-Blade</label>
+		<description>An ancient cortosis-weave double bladed weapon fitted with minature vibrocells.</description>
+		<graphicData>
+			<texPath>Weapons/Vibrodouble</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.3</drawSize>			
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>			
+		</graphicData>
+	    <tickerType>Normal</tickerType>
+		<soundInteract>InteractPistol</soundInteract>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MeleeWeapon_Penetration>0.25</MeleeWeapon_Penetration>
+			<Bulk>3.5</Bulk>
+			<MarketValue>3000</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>			
+			<WorkToMake>55800</WorkToMake>
+			<Mass>1.8</Mass>
+			<MeleeWeapon_DamageAmount>20</MeleeWeapon_DamageAmount>
+			<DeteriorationRate>0.025</DeteriorationRate>
+			<MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<!-- recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+				<li>FueledSmithy</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker -->
+	<weaponTags>
+      <li>Melee</li>
+		<li>CE_Sidearm</li>
+	</weaponTags>
+     <verbs>
+     <li>
+     <verbClass>Verb_MeleeAttack</verbClass>
+     <hasStandardCommand>true</hasStandardCommand>
+     <meleeDamageDef>PJ_Vibro</meleeDamageDef>
+     </li>
+     </verbs>
+		</ThingDef>
+		
+		<!-- ====== Xen's staff ====== -->
+		
+		  
+		<ThingDef ParentName="PJ_BaseVibroWeapon">
+		<defName>PJ_StaffX</defName>
+		<label>Vibrostaff (prototype)</label>
+		<description>A cortosis-weave polearm fitted with minature vibrocells.</description>
+		<graphicData>
+			<texPath>Weapons/SpikeStaff</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>2.3</drawSize>			
+			<onGroundRandomRotateAngle>35</onGroundRandomRotateAngle>			
+		</graphicData>
+	    <tickerType>Normal</tickerType>
+		<soundInteract>InteractPistol</soundInteract>
+		<tradeability>Sellable</tradeability>
+		<statBases>
+			<MeleeWeapon_Penetration>0.10</MeleeWeapon_Penetration>
+			<Bulk>3.5</Bulk>
+			<MarketValue>13000</MarketValue>
+			<MaxHitPoints>80</MaxHitPoints>			
+			<WorkToMake>55800</WorkToMake>
+			<Mass>1.8</Mass>
+			<MeleeWeapon_DamageAmount>86</MeleeWeapon_DamageAmount>
+			<DeteriorationRate>0.025</DeteriorationRate>
+			<MeleeWeapon_Cooldown>1.0</MeleeWeapon_Cooldown>
+		</statBases>
+		<equippedAngleOffset>-65</equippedAngleOffset>
+		<stuffCategories>
+			<li>Metallic</li>
+		</stuffCategories>
+		<!-- recipeMaker>
+			<recipeUsers>
+				<li>ElectricSmithy</li>
+				<li>FueledSmithy</li>
+				<li>CraftingSpot</li>
+			</recipeUsers>
+		</recipeMaker -->
+	<weaponTags>
+      <li>Melee</li>
+		<li>CE_Sidearm</li>
+	</weaponTags>
+     <verbs>
+     <li>
+     <verbClass>Verb_MeleeAttack</verbClass>
+     <hasStandardCommand>true</hasStandardCommand>
+     <meleeDamageDef>PJ_Vibro</meleeDamageDef>
+     </li>
+     </verbs>
+		</ThingDef>
+		
+</ThingDefs>

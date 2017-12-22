@@ -1,0 +1,1264 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Warning: This will break if original mod moves weapons into diff files.
+         Use a patch sequence for each file to reduce load times. -->
+
+  <Operation Class="PatchOperationSequence">
+  <success>Always</success>
+  <operations>
+
+    <!-- ========== PJ_E11Blaster ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_E11Blaster"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_E11Blaster"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_E11Blaster"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_E11Blaster</defName>
+      <statBases>
+        <Bulk>6.5</Bulk>
+        <SightsEfficiency>1</SightsEfficiency>
+        <ShotSpread>0.07</ShotSpread>
+        <SwayFactor>1.3</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCast>PJ_E11B</soundCast>
+          <hasStandardCommand>true</hasStandardCommand>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <burstShotCount>3</burstShotCount>
+          <warmupTime>1.53</warmupTime>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <range>40</range>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_AssaultWeapon</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <reloadTime>3</reloadTime>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <magazineSize>24</magazineSize>
+      </AmmoUser>
+      <FireModes>
+  	   <aimedBurstShotCount>3</aimedBurstShotCount>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_DH17Blaster ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_DH17Blaster"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_DH17Blaster"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_DH17Blaster"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_DH17Blaster</defName>
+      <statBases>
+        <Bulk>2.17</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.11</ShotSpread>
+        <SwayFactor>1.02</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCast>PJ_E11B</soundCast>
+          <hasStandardCommand>true</hasStandardCommand>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <burstShotCount>3</burstShotCount>
+          <warmupTime>1.53</warmupTime>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <range>40</range>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_Pistol</li>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <reloadTime>3</reloadTime>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <magazineSize>15</magazineSize>
+      </AmmoUser>
+      <FireModes>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+  	   <aiAimMode>AimedShot</aiAimMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_Scoutblaster ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_Scoutblaster"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_Scoutblaster"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_Scoutblaster"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_Scoutblaster</defName>
+      <statBases>
+        <Bulk>2.17</Bulk>
+        <SightsEfficiency>0.85</SightsEfficiency>
+        <ShotSpread>0.21</ShotSpread>
+        <SwayFactor>1.32</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCast>PJ_BPistol</soundCast>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <burstShotCount>4</burstShotCount>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>0.63</warmupTime>
+          <range>30</range>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_Pistol</li>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <magazineSize>16</magazineSize>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <reloadTime>2</reloadTime>
+      </AmmoUser>
+      <FireModes>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+  	   <aimedBurstShotCount>2</aimedBurstShotCount>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_SE14blaster ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_SE14blaster"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_SE14blaster"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_SE14blaster"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_SE14blaster</defName>
+      <statBases>
+        <Bulk>2.17</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.11</ShotSpread>
+        <SwayFactor>1.02</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <soundCast>PJ_BPistol</soundCast>
+          <range>25</range>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>0.63</warmupTime>
+          <burstShotCount>4</burstShotCount>
+          <muzzleFlashScale>12</muzzleFlashScale>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_Pistol</li>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <magazineSize>20</magazineSize>
+  	   <reloadTime>3</reloadTime>
+      </AmmoUser>
+      <FireModes>
+  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aimedBurstShotCount>2</aimedBurstShotCount>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_DL44blaster ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_DL44blaster"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_DL44blaster"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_DL44blaster"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_DL44blaster</defName>
+      <statBases>
+        <Bulk>3</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.21</ShotSpread>
+        <SwayFactor>1.32</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCast>PJ_BPistolC</soundCast>
+          <hasStandardCommand>true</hasStandardCommand>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <burstShotCount>2</burstShotCount>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>0.83</warmupTime>
+          <range>25</range>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_Pistol</li>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <reloadTime>3.5</reloadTime>
+  	   <magazineSize>12</magazineSize>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+      </AmmoUser>
+      <FireModes>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_DXR6Carb ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_DXR6Carb"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_DXR6Carb"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_DXR6Carb"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_DXR6Carb</defName>
+      <statBases>
+        <Bulk>3</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.21</ShotSpread>
+        <SwayFactor>1.32</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <soundCast>PJ_DXRS</soundCast>
+          <range>26</range>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>0.83</warmupTime>
+          <burstShotCount>2</burstShotCount>
+          <muzzleFlashScale>12</muzzleFlashScale>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_Pistol</li>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <magazineSize>14</magazineSize>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <reloadTime>3.2</reloadTime>
+      </AmmoUser>
+      <FireModes>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_JawaIon ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_JawaIon"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_JawaIon"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_JawaIon"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_JawaIon</defName>
+      <statBases>
+        <Bulk>3</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.21</ShotSpread>
+        <SwayFactor>1.32</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCast>PJ_BPistolB</soundCast>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <soundCastTail>GunTail_Heavy</soundCastTail>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <burstShotCount>1</burstShotCount>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>3.83</warmupTime>
+          <range>26</range>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_Pistol</li>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <reloadTime>3.7</reloadTime>
+  	   <magazineSize>18</magazineSize>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+      </AmmoUser>
+      <FireModes>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_NymSlug ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_NymSlug"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_NymSlug"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_NymSlug"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_NymSlug</defName>
+      <statBases>
+        <Bulk>3</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.26</ShotSpread>
+        <SwayFactor>1.64</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCast>PJ_SlugSnd</soundCast>
+          <soundCastTail>GunTail_Heavy</soundCastTail>
+          <hasStandardCommand>true</hasStandardCommand>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <burstShotCount>3</burstShotCount>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <range>24</range>
+          <warmupTime>0.83</warmupTime>
+          <defaultProjectile>Bullet_12Gauge_ElectroSlug</defaultProjectile>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_AI_AssaultWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <reloadTime>4</reloadTime>
+  	   <magazineSize>16</magazineSize>
+  	   <ammoSet>AmmoSet_12Gauge</ammoSet>
+      </AmmoUser>
+      <FireModes>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+  	   <aiAimMode>AimedShot</aiAimMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_LauncherP ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_LauncherP"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_LauncherP"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_LauncherP"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_LauncherP</defName>
+      <statBases>
+        <Bulk>5.5</Bulk>
+        <SightsEfficiency>0.45</SightsEfficiency>
+        <ShotSpread>0.35</ShotSpread>
+        <SwayFactor>4.64</SwayFactor>
+      </statBases>
+      <Properties>
+          <range>20</range>
+          <defaultProjectile>Bullet_84x246mmR_HEAT</defaultProjectile>
+          <warmupTime>2.83</warmupTime>
+          <burstShotCount>1</burstShotCount>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <soundCastTail>GunTail_Heavy</soundCastTail>
+          <forcedMissRadius>2.4</forcedMissRadius>
+          <hasStandardCommand>true</hasStandardCommand>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <soundCast>ShotIncendiaryLauncher</soundCast>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_Pistol</li>
+  	   <li>CE_OneHandedWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <magazineSize>8</magazineSize>
+  	   <ammoSet>AmmoSet_84x246mmR</ammoSet>
+  	   <reloadTime>6</reloadTime>
+      </AmmoUser>
+      <FireModes>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+  	   <aiAimMode>AimedShot</aiAimMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_T21Rifle ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_T21Rifle"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_T21Rifle"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_T21Rifle"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_T21Rifle</defName>
+      <statBases>
+        <Bulk>4</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.11</ShotSpread>
+        <SwayFactor>1.02</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <hasStandardCommand>true</hasStandardCommand>
+          <soundCast>PJ_T21R</soundCast>
+          <range>45</range>
+          <warmupTime>1.63</warmupTime>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge_AP</defaultProjectile>
+          <burstShotCount>1</burstShotCount>
+          <muzzleFlashScale>12</muzzleFlashScale>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_AssaultWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <magazineSize>18</magazineSize>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <reloadTime>2.4</reloadTime>
+      </AmmoUser>
+      <FireModes>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_DC15Rifle ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_DC15Rifle"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_DC15Rifle"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_DC15Rifle"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_DC15Rifle</defName>
+      <statBases>
+        <Bulk>4</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.31</ShotSpread>
+        <SwayFactor>1.22</SwayFactor>
+      </statBases>
+      <Properties>
+          <burstShotCount>1</burstShotCount>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <range>45</range>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>1.63</warmupTime>
+          <soundCast>PJ_T21R</soundCast>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_AssaultWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <reloadTime>2.4</reloadTime>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <magazineSize>20</magazineSize>
+      </AmmoUser>
+      <FireModes>
+  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+  	   <aiAimMode>AimedShot</aiAimMode>
+  	   <aimedBurstShotCount>2</aimedBurstShotCount>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_DLT19Rifle ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_DLT19Rifle"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_DLT19Rifle"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_DLT19Rifle"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_DLT19Rifle</defName>
+      <statBases>
+        <Bulk>4</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.31</ShotSpread>
+        <SwayFactor>1.22</SwayFactor>
+      </statBases>
+      <Properties>
+          <soundCast>PJ_T21R</soundCast>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <ticksBetweenBurstShots>6</ticksBetweenBurstShots>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <burstShotCount>3</burstShotCount>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>1.43</warmupTime>
+          <range>42</range>
+      </Properties>
+      <weaponTags>
+  	   <li>MedievalShields_ValidSidearm</li>
+  	   <li>CE_AI_AssaultWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <magazineSize>24</magazineSize>
+  	   <reloadTime>2.4</reloadTime>
+      </AmmoUser>
+      <FireModes>
+  	   <aimedBurstShotCount>3</aimedBurstShotCount>
+  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+  	   <aiAimMode>AimedShot</aiAimMode>
+      </FireModes>
+    </li>
+
+    <!-- ========== PJ_EE3Carbine ========== -->
+
+    <!-- Create tools node if it doesn't exist -->
+    <li Class="PatchOperationSequence">
+    	<success>Always</success>
+    	<operations>
+      	    <li Class="PatchOperationTest">
+      		<xpath>*/ThingDef[defName="PJ_EE3Carbine"]/tools</xpath>
+        	<success>Invert</success>
+      	    </li>
+      	    <li Class="PatchOperationAdd">
+      		<xpath>*/ThingDef[defName="PJ_EE3Carbine"]</xpath>
+        	<value>
+          	    <tools />
+        	</value>
+      	    </li>
+    	</operations>
+    </li>
+
+    <!-- Add tools melee values -->
+    <li Class="PatchOperationAdd">
+      <xpath>Defs/ThingDef[defName="PJ_EE3Carbine"]/tools</xpath>
+      <value>
+        <li Class="CombatExtended.ToolCE">
+          <label>stock</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>9</power>
+          <cooldownTime>1.8</cooldownTime>
+          <commonality>1.5</commonality>
+          <armorPenetration>0.11</armorPenetration>
+          <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelblunt</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Blunt</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.118</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+        <li Class="CombatExtended.ToolCE">
+          <id>barrelpoke</id>
+          <label>barrel</label>
+          <capacities>
+            <li>Poke</li>
+          </capacities>
+          <power>10</power>
+          <cooldownTime>1.9</cooldownTime>
+          <armorPenetration>0.086</armorPenetration>
+          <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
+        </li>
+      </value>
+    </li>
+
+    <!-- CE conversion -->
+    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
+      <defName>PJ_EE3Carbine</defName>
+      <statBases>
+        <Bulk>4</Bulk>
+        <SightsEfficiency>0.7</SightsEfficiency>
+        <ShotSpread>0.08</ShotSpread>
+        <SwayFactor>0.82</SwayFactor>
+      </statBases>
+      <Properties>
+          <range>45</range>
+          <defaultProjectile>Bullet_SWPlasmaGasCartridge</defaultProjectile>
+          <warmupTime>2.23</warmupTime>
+          <burstShotCount>2</burstShotCount>
+          <muzzleFlashScale>12</muzzleFlashScale>
+          <soundCastTail>PJ_Blas_Far</soundCastTail>
+          <verbClass>CombatExtended.Verb_ShootCE</verbClass>
+          <hasStandardCommand>true</hasStandardCommand>
+          <ticksBetweenBurstShots>8</ticksBetweenBurstShots>
+          <soundCast>PJ_T21R</soundCast>
+      </Properties>
+      <weaponTags>
+  	   <li>CE_AI_AssaultWeapon</li>
+  	   <li>CE_Sidearm</li>
+      </weaponTags>
+      <AmmoUser>
+  	   <reloadTime>1.9</reloadTime>
+  	   <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+  	   <magazineSize>30</magazineSize>
+      </AmmoUser>
+      <FireModes>
+  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+  	   <aiAimMode>AimedShot</aiAimMode>
+      </FireModes>
+    </li>
+
+  </operations>  <!-- end sequence -->
+  </Operation>   <!-- end sequence -->
+
+</Patch>
+

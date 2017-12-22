@@ -1,14 +1,27 @@
-DO NOT USE
+Combat Extended compatibility patch for Star Wars Factions (b18).
 
-----------------
+This is b18 update for the a17 patch by jaeger972 (http://steamcommunity.com/sharedfiles/filedetails/?id=974909952).
 
-Combat Extended compatibility patch for Start Wars Factions (b18).
-
-Unofficial b18 update for the a17 patch by jaeger972 (http://steamcommunity.com/sharedfiles/filedetails/?id=974909952).
+Replaced the weapon Defs with CE weapon patches (script-generated using values from a17 patch).
 
 Notes:
+- Walker combat-related functions don't work right now.
 - Apparel defaults to Bulk=1.0 and has not been patched (a17 patch uses Bulk=2.0).
 - Set Imperial Credit Bulk=0 to avoid pawns loading with no ammo.
+
+Pawnkinds:
+- Add ammo min/max.
+
+Melee weapons:
+- Add Bulk, CE weapon tags.
+- Add Crit chance, Parry chance (modeled after similar core weapons)
+- Add Armor Penetration (using core longsword values, multiplied for vibro attacks).
+- Add CE attributes to tools nodes.
+
+Ranged weapons:
+- Add Bulk, CE weapon tags.
+- Add SightsEfficiency, ShotSpread, SwayFactor, fire modes, ammo info (a17 values)
+- Add b18 tools(melee) nodes and melee armor penetration (using core weapon values).
 
 Credit for patch textures and a17 CE patch belong to jaeger972.
 
@@ -21,5 +34,6 @@ Original description (a17, jaeger972):
   Due to the nature of CE the balancing of the weapons comparatively to the original version in vanilla rimworld is different.
   Like with everything else in CE you will wreck your enemies if you gain access to the Star Wars weaponry but keep in mind that faction raids will spawn with said weaponry.
   
-  IMPORTANT!: This mod requieres JecsTools, Star Wars - Factions and Combat Extended.
+  IMPORTANT!: This mod requires JecsTools, Star Wars - Factions and Combat Extended.
   The load order should be: JecsTools -> Star Wars - Factions -> Combat Extended -> Star Wars - Factions(CE Patch)
+
