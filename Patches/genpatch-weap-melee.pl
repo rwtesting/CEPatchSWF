@@ -85,7 +85,7 @@ my $patcher = new RWPatcher::Weapons::Melee(
     cedata      => \%CEDATA,
 ) or die("ERR: Failed new RWPatcher::Weapons::Melee: $!\n");
 
-$patcher->generate_patches or die("ERR: generate_patches: $!\n");
+$patcher->generate_patches;
 
 exit(0);
 

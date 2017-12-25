@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-    <!-- Warning: This will break if original mod moves weapons into diff files.
-         Use a patch sequence for each file to reduce load times. -->
+    <!-- Warning: This patch will break if original mod moves weapons into diff files.
+         To fix this, please re-run script using new mod file paths. -->
 
   <Operation Class="PatchOperationSequence">
   <success>Always</success>

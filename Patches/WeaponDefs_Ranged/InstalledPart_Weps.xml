@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-    <!-- Warning: This will break if original mod moves weapons into diff files.
-         Use a patch sequence for each file to reduce load times. -->
+    <!-- Warning: This patch will break if original mod moves weapons into diff files.
+         To fix this, please re-run script using new mod file paths. -->
 
   <Operation Class="PatchOperationSequence">
   <success>Always</success>
@@ -12,19 +12,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_ATST_Blaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -79,12 +79,12 @@
         <weaponTags>
         </weaponTags>
         <AmmoUser>
-  	    <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
-  	    <reloadTime>3</reloadTime>
-  	    <magazineSize>6</magazineSize>
+              <reloadTime>3</reloadTime>
+              <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
+              <magazineSize>6</magazineSize>
         </AmmoUser>
         <FireModes>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -112,19 +112,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_ATAT_Blaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -179,12 +179,12 @@
         <weaponTags>
         </weaponTags>
         <AmmoUser>
-  	    <reloadTime>3</reloadTime>
-  	    <magazineSize>6</magazineSize>
-  	    <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
+              <magazineSize>6</magazineSize>
+              <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
+              <reloadTime>3</reloadTime>
         </AmmoUser>
         <FireModes>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -212,19 +212,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_Spd_Blaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -279,12 +279,12 @@
         <weaponTags>
         </weaponTags>
         <AmmoUser>
-  	    <reloadTime>1.2</reloadTime>
-  	    <magazineSize>10</magazineSize>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>10</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <reloadTime>1.2</reloadTime>
         </AmmoUser>
         <FireModes>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 

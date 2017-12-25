@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Patch>
 
-    <!-- Warning: This will break if original mod moves weapons into diff files.
-         Use a patch sequence for each file to reduce load times. -->
+    <!-- Warning: This patch will break if original mod moves weapons into diff files.
+         To fix this, please re-run script using new mod file paths. -->
 
   <Operation Class="PatchOperationSequence">
   <success>Always</success>
@@ -12,19 +12,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_E11Blaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_E11Blaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_E11Blaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_E11Blaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -77,17 +77,17 @@
             <SwayFactor>1.3</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_AssaultWeapon</li>
+              <li>CE_AI_AssaultWeapon</li>
         </weaponTags>
         <AmmoUser>
-  	    <reloadTime>3</reloadTime>
-  	    <magazineSize>24</magazineSize>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <reloadTime>3</reloadTime>
+              <magazineSize>24</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
         </AmmoUser>
         <FireModes>
-  	   <aimedBurstShotCount>3</aimedBurstShotCount>
-  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
-  	   <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aimedBurstShotCount>3</aimedBurstShotCount>
         </FireModes>
     </li>
 
@@ -115,19 +115,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_DH17Blaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_DH17Blaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_DH17Blaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_DH17Blaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -180,18 +180,18 @@
             <SwayFactor>1.02</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_Pistol</li>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_Pistol</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
-  	    <magazineSize>15</magazineSize>
-  	    <reloadTime>3</reloadTime>
+              <reloadTime>3</reloadTime>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>15</magazineSize>
         </AmmoUser>
         <FireModes>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
-  	   <aiAimMode>AimedShot</aiAimMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -219,19 +219,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_Scoutblaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_Scoutblaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_Scoutblaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_Scoutblaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -284,19 +284,19 @@
             <SwayFactor>1.32</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_Pistol</li>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_Pistol</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
-  	    <magazineSize>16</magazineSize>
-  	    <reloadTime>2</reloadTime>
+              <magazineSize>16</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <reloadTime>2</reloadTime>
         </AmmoUser>
         <FireModes>
-  	   <aimedBurstShotCount>2</aimedBurstShotCount>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aimedBurstShotCount>2</aimedBurstShotCount>
         </FireModes>
     </li>
 
@@ -324,19 +324,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_SE14blaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_SE14blaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_SE14blaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_SE14blaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -389,19 +389,19 @@
             <SwayFactor>1.02</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_Pistol</li>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_Pistol</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <reloadTime>3</reloadTime>
-  	    <magazineSize>20</magazineSize>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <reloadTime>3</reloadTime>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>20</magazineSize>
         </AmmoUser>
         <FireModes>
-  	   <aimedBurstShotCount>2</aimedBurstShotCount>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aimedBurstShotCount>2</aimedBurstShotCount>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>TRUE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -429,19 +429,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_DL44blaster"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_DL44blaster"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_DL44blaster"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_DL44blaster"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -494,18 +494,18 @@
             <SwayFactor>1.32</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_Pistol</li>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_Pistol</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
-  	    <reloadTime>3.5</reloadTime>
-  	    <magazineSize>12</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>12</magazineSize>
+              <reloadTime>3.5</reloadTime>
         </AmmoUser>
         <FireModes>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -533,19 +533,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_DXR6Carb"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_DXR6Carb"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_DXR6Carb"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_DXR6Carb"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -598,18 +598,18 @@
             <SwayFactor>1.32</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_Pistol</li>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_Pistol</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <magazineSize>14</magazineSize>
-  	    <reloadTime>3.2</reloadTime>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>14</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <reloadTime>3.2</reloadTime>
         </AmmoUser>
         <FireModes>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -637,19 +637,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_JawaIon"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_JawaIon"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_JawaIon"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_JawaIon"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -702,18 +702,18 @@
             <SwayFactor>1.32</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_Pistol</li>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_Pistol</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <reloadTime>3.7</reloadTime>
-  	    <magazineSize>18</magazineSize>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>18</magazineSize>
+              <reloadTime>3.7</reloadTime>
         </AmmoUser>
         <FireModes>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
-  	   <aiAimMode>AimedShot</aiAimMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -741,19 +741,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_NymSlug"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_NymSlug"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_NymSlug"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_NymSlug"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -806,18 +806,18 @@
             <SwayFactor>1.64</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_AI_AssaultWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_AI_AssaultWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <ammoSet>AmmoSet_12Gauge</ammoSet>
-  	    <magazineSize>16</magazineSize>
-  	    <reloadTime>4</reloadTime>
+              <magazineSize>16</magazineSize>
+              <ammoSet>AmmoSet_12Gauge</ammoSet>
+              <reloadTime>4</reloadTime>
         </AmmoUser>
         <FireModes>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -845,19 +845,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_LauncherP"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_LauncherP"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_LauncherP"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_LauncherP"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -910,18 +910,18 @@
             <SwayFactor>4.64</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_Pistol</li>
-  	    <li>CE_OneHandedWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_Pistol</li>
+              <li>CE_OneHandedWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <magazineSize>8</magazineSize>
-  	    <reloadTime>6</reloadTime>
-  	    <ammoSet>AmmoSet_84x246mmR</ammoSet>
+              <reloadTime>6</reloadTime>
+              <ammoSet>AmmoSet_84x246mmR</ammoSet>
+              <magazineSize>8</magazineSize>
         </AmmoUser>
         <FireModes>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
         </FireModes>
     </li>
 
@@ -949,19 +949,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_T21Rifle"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_T21Rifle"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_T21Rifle"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_T21Rifle"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -1014,17 +1014,17 @@
             <SwayFactor>1.02</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_AssaultWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_AssaultWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
-  	    <reloadTime>2.4</reloadTime>
-  	    <magazineSize>18</magazineSize>
+              <reloadTime>2.4</reloadTime>
+              <magazineSize>18</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
         </AmmoUser>
         <FireModes>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
-  	   <aiAimMode>AimedShot</aiAimMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
         </FireModes>
     </li>
 
@@ -1052,19 +1052,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_DC15Rifle"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_DC15Rifle"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_DC15Rifle"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_DC15Rifle"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -1117,18 +1117,18 @@
             <SwayFactor>1.22</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_AssaultWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_AssaultWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <magazineSize>20</magazineSize>
-  	    <reloadTime>2.4</reloadTime>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <reloadTime>2.4</reloadTime>
+              <magazineSize>20</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
         </AmmoUser>
         <FireModes>
-  	   <aimedBurstShotCount>2</aimedBurstShotCount>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aimedBurstShotCount>2</aimedBurstShotCount>
+             <aiAimMode>AimedShot</aiAimMode>
         </FireModes>
     </li>
 
@@ -1156,19 +1156,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_DLT19Rifle"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_DLT19Rifle"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_DLT19Rifle"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_DLT19Rifle"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -1221,19 +1221,19 @@
             <SwayFactor>1.22</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>MedievalShields_ValidSidearm</li>
-  	    <li>CE_AI_AssaultWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>MedievalShields_ValidSidearm</li>
+              <li>CE_AI_AssaultWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <magazineSize>24</magazineSize>
-  	    <reloadTime>2.4</reloadTime>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <reloadTime>2.4</reloadTime>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>24</magazineSize>
         </AmmoUser>
         <FireModes>
-  	   <aimedBurstShotCount>3</aimedBurstShotCount>
-  	   <aiAimMode>AimedShot</aiAimMode>
-  	   <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
+             <aimedBurstShotCount>3</aimedBurstShotCount>
         </FireModes>
     </li>
 
@@ -1261,19 +1261,19 @@
 
     <!-- Create tools node if it doesn't exist -->
     <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="PJ_EE3Carbine"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="PJ_EE3Carbine"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationTest">
+            <xpath>Defs/ThingDef[defName="PJ_EE3Carbine"]/tools</xpath>
+                <success>Invert</success>
+            </li>
+            <li Class="PatchOperationAdd">
+            <xpath>Defs/ThingDef[defName="PJ_EE3Carbine"]</xpath>
+                <value>
+                      <tools />
+                </value>
+            </li>
+        </operations>
     </li>
 
     <!-- Add tools melee values -->
@@ -1326,17 +1326,17 @@
             <SwayFactor>0.82</SwayFactor>
         </statBases>
         <weaponTags>
-  	    <li>CE_AI_AssaultWeapon</li>
-  	    <li>CE_Sidearm</li>
+              <li>CE_AI_AssaultWeapon</li>
+              <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-  	    <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
-  	    <reloadTime>1.9</reloadTime>
-  	    <magazineSize>30</magazineSize>
+              <reloadTime>1.9</reloadTime>
+              <magazineSize>30</magazineSize>
+              <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
         </AmmoUser>
         <FireModes>
-  	   <aiUseBurstMode>FALSE</aiUseBurstMode>
-  	   <aiAimMode>AimedShot</aiAimMode>
+             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <aiAimMode>AimedShot</aiAimMode>
         </FireModes>
     </li>
 

@@ -5,6 +5,9 @@ use warnings;
 use XML::Simple;
 use File::Basename qw(basename);
 
+use lib "../../_lib";
+use RWPatcher::Weapons::Ranged;
+
 #
 # Generate CE patch for @SOURCEFILES:
 # - Add missing CE values
@@ -18,17 +21,16 @@ use File::Basename qw(basename);
 # Warn+Skip if blaster found in source file that we don't have CE data for.
 #
 
-# Common values for all guns
-my $VERBCLASS = 'CombatExtended.Verb_ShootCE';
-
 # The source (from source mod) files to be used to generate patches.
-# The output file will have the same base name, with s/(-REF)?.txt/.xml/, target $OUTDIR.
+# The output file will have the same base name, with s/(-REF)?.txt/.xml/,
+# and same parent dirname (under current dir).
 # (.txt is sometimes used for copied ref/source files so that Rimworld doesn't read them)
-my $OUTDIR = "./WeaponDefs_Ranged";
 my @SOURCEFILES = qw(
     ../../918227266/Defs/WeaponDefs_Ranged/Blaster_Weps.xml
     ../../918227266/Defs/WeaponDefs_Ranged/InstalledPart_Weps.xml
 );
+
+my $SOURCEMOD = "Star Wars - Factions";
 
 # CE Values + ammo for each blaster, from a17 patch by jaeger972
 # Add new b18 CE weapon tags and generate patch in b18 format.
@@ -417,213 +419,13 @@ my %CEDATA = (
 
 );
 
-# Process each source file, print to output patch file.
-my($sourcefile, $outfile);
-foreach $sourcefile (@SOURCEFILES)
-{
+my $patcher = new RWPatcher::Weapons::Ranged(
+    sourcefiles => \@SOURCEFILES,
+    cedata      => \%CEDATA,
+    #sourcemod	=> $SOURCEMOD,
+) or die("ERR: Failed new RWPatcher::Weapons::Ranged: $!\n");
 
-# Generate output patch file name
-($outfile = "$OUTDIR/".basename($sourcefile)) =~ s/(?:-REF)\.[a-z]+$/.xml/i;
-print("\nSource: $sourcefile\nPatch : $outfile\n");
-
-# Open source/output files
-my $source =  XMLin($sourcefile, ForceArray => [qw(ThingDef li)])
-    or die("ERR: read source xml $sourcefile: $!\n");
-
-open(OUTFILE, ">", $outfile)
-    or die("ERR: open/write $outfile: $!\n");
-
-# Header
-print OUTFILE (<<EOF);
-<?xml version="1.0" encoding="utf-8" ?>
-<Patch>
-
-    <!-- Warning: This will break if original mod moves weapons into diff files.
-         Use a patch sequence for each file to reduce load times. -->
-
-  <Operation Class="PatchOperationSequence">
-  <success>Always</success>
-  <operations>
-
-EOF
-
-# Step through source xml.
-# Generate patch for each known defName/blaster in the same order.
-my($weapon, $data, $key, $val);
-foreach my $entry ( @{$source->{ThingDef}} )
-{
-    next unless exists($entry->{defName}) && exists $CEDATA{$entry->{defName}};
-    $weapon = $entry->{defName};
-    $data = $CEDATA{$entry->{defName}};
-
-    print OUTFILE (<<EOF);
-    <!-- ========== $entry->{defName} ========== -->
-
-    <!-- Create tools node if it doesn't exist -->
-    <li Class="PatchOperationSequence">
-    	<success>Always</success>
-    	<operations>
-      	    <li Class="PatchOperationTest">
-      	    <xpath>Defs/ThingDef[defName="$weapon"]/tools</xpath>
-        	<success>Invert</success>
-      	    </li>
-      	    <li Class="PatchOperationAdd">
-      	    <xpath>Defs/ThingDef[defName="$weapon"]</xpath>
-        	<value>
-          	    <tools />
-        	</value>
-      	    </li>
-    	</operations>
-    </li>
-
-    <!-- Add tools melee values -->
-    <li Class="PatchOperationAdd">
-        <xpath>Defs/ThingDef[defName="$weapon"]/tools</xpath>
-        <value>
-            <li Class="CombatExtended.ToolCE">
-                <label>stock</label>
-                <capacities>
-                    <li>Blunt</li>
-                </capacities>
-                <power>9</power>
-                <cooldownTime>1.8</cooldownTime>
-                <commonality>1.5</commonality>
-                <armorPenetration>0.11</armorPenetration>
-                <linkedBodyPartsGroup>Stock</linkedBodyPartsGroup>
-            </li>
-            <li Class="CombatExtended.ToolCE">
-                <id>barrelblunt</id>
-                <label>barrel</label>
-                <capacities>
-                    <li>Blunt</li>
-                </capacities>
-                <power>10</power>
-                <cooldownTime>1.9</cooldownTime>
-                <armorPenetration>0.118</armorPenetration>
-                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-            </li>
-            <li Class="CombatExtended.ToolCE">
-                <id>barrelpoke</id>
-                <label>barrel</label>
-                <capacities>
-                    <li>Poke</li>
-                </capacities>
-                <power>10</power>
-                <cooldownTime>1.9</cooldownTime>
-                <armorPenetration>0.086</armorPenetration>
-                <linkedBodyPartsGroup>Barrel</linkedBodyPartsGroup>
-            </li>
-        </value>
-    </li>
-
-    <!-- CE conversion -->
-    <li Class="CombatExtended.PatchOperationMakeGunCECompatible">
-        <defName>$weapon</defName>
-        <statBases>
-            <Bulk>$data->{Bulk}</Bulk>
-            <SightsEfficiency>$data->{SightsEfficiency}</SightsEfficiency>
-            <ShotSpread>$data->{ShotSpread}</ShotSpread>
-            <SwayFactor>$data->{SwayFactor}</SwayFactor>
-        </statBases>
-EOF
-
-    # Add weapon tags from both source xml and CE data, if any
-    #%union = map {$_ => 1} (exists $entry->{weaponTags} ? @{$entry->{weaponTags}->{li}} : (), exists $data->{weaponTags} ? @{$data->{weaponTags}} : ());
-    if (exists $data->{weaponTags})
-    {
-         print OUTFILE (<<EOF);
-        <weaponTags>
-EOF
-	 foreach $key ( @{$data->{weaponTags}} )
-	 {
-	     print OUTFILE (<<EOF);
-  	    <li>$key</li>
-EOF
-	 }
-
-         print OUTFILE (<<EOF);
-        </weaponTags>
-EOF
-    }
-
-    # Add AmmoUser (CE only)
-    if (exists $data->{AmmoUser})
-    {
-	print OUTFILE (<<EOF);
-        <AmmoUser>
-EOF
-	while ( ($key,$val) = each %{$data->{AmmoUser}} )
-	{
-	print OUTFILE (<<EOF);
-  	    <$key>$val</$key>
-EOF
-	}
-	print OUTFILE (<<EOF);
-        </AmmoUser>
-EOF
-    }
-
-    # Add FireModes (CE only)
-    if (exists $data->{FireModes})
-    {
-	print OUTFILE (<<EOF);
-        <FireModes>
-EOF
-	while ( ($key,$val) = each %{$data->{FireModes}} )
-	{
-	print OUTFILE (<<EOF);
-  	   <$key>$val</$key>
-EOF
-	}
-	print OUTFILE (<<EOF);
-        </FireModes>
-EOF
-    }
-
-    # Closer: CombatExtended.PatchOperationMakeGunCECompatible
-    print OUTFILE (<<EOF);
-    </li>
-
-EOF
-    # Update verbs node. Don't use Properties in PatchOperationMakeGunCECompatible
-    # because we don't want to copy the entire verbs node over.
-    if (exists $entry->{verbs} )
-    {
-        print OUTFILE (<<EOF);
-    <li Class="PatchOperationAttributeSet">
-    <xpath>Defs/ThingDef[defName="$weapon"]/verbs/li</xpath>
-        <attribute>Class</attribute>
-        <value>CombatExtended.VerbPropertiesCE</value>
-    </li>
-
-    <li Class="PatchOperationReplace">
-    <xpath>Defs/ThingDef[defName="$weapon"]/verbs/li/verbClass</xpath>
-    <value>
-        <verbClass>$VERBCLASS</verbClass>
-    </value>
-    </li>
-
-    <li Class="PatchOperationReplace">
-    <xpath>Defs/ThingDef[defName="$weapon"]/verbs/li/defaultProjectile</xpath>
-    <value>
-        <defaultProjectile>$data->{defaultProjectile}</defaultProjectile>
-    </value>
-    </li>
-
-EOF
-     }
-}
-
-# Closer
-print OUTFILE (<<EOF);
-  </operations>  <!-- end sequence -->
-  </Operation>   <!-- end sequence -->
-
-</Patch>
-
-EOF
-
-}  # end foreach @SOURCEFILES
+$patcher->generate_patches();
 
 exit(0);
 
