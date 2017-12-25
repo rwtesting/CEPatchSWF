@@ -2,8 +2,8 @@
 use strict;
 use warnings;
 
-use XML::Simple;
-use File::Basename qw(basename);
+use lib "../../_lib";
+use RWPatcher::Weapons::Melee;
 
 #
 # Generate CE patch for $SOURCEFILE:
@@ -25,26 +25,7 @@ use File::Basename qw(basename);
 # only if tool capacity can't be determined/mapped.
 #
 
-
 my $SOURCEFILE = "../../918227266/Defs/WeaponDefs_Melee/PJ_VibroWeps.xml";
-my $OUTFILE    = "./WeaponDefs_Melee/PJ_VibroWeps.xml";
-
-# Armor Penetration per tool capacity
-# (to start, we'll use similar values from core patch with bonus for vibro capacities)
-#
-# To be more realistic, AP would be per-weapon and per-capacity.
-# For example, a formula for Axe+VibroCut(more), Axe+VibroStab, Staff+VibroCut(less), etc.
-# We could also take the a17 values and adjust them by capacity (+stab, -blunt, =cut?).
-# Not really needed for this patch.
-# (It would be a lot easier w/ less load time to apply a17 AP value to all tools entries)
-#
-my %AP = (
-    #Cut	 => 0.201,	# longsword
-    #Stab	 => 0.304,	# longsword
-    Blunt	 => 0.087,	# longsword
-    PJ_VibroCut	 => 0.231,	# longsword * 1.15
-    PJ_VibroStab => 0.350,	# longsword * 1.15
-);
 
 # CE Values for each melee weapon, from a17 patch by jaeger972.
 my %CEDATA = (
@@ -99,148 +80,12 @@ my %CEDATA = (
     },
 );
 
-# Open source/output files
-my $source =  XMLin($SOURCEFILE, ForceArray => [qw(ThingDef li)])
-    or die("ERR: read source xml $SOURCEFILE: $!\n");
-open(OUTFILE, ">", $OUTFILE)
-    or die("Failed to open/write $OUTFILE: $!\n");
+my $patcher = new RWPatcher::Weapons::Melee(
+    sourcefiles => [ $SOURCEFILE ],
+    cedata      => \%CEDATA,
+) or die("ERR: Failed new RWPatcher::Weapons::Melee: $!\n");
 
-# Header
-print OUTFILE (<<EOF);
-<?xml version="1.0" encoding="utf-8" ?>
-<Patch>
-
-    <!-- Warning: This will break if original mod moves weapons into diff files.
-         Use a patch sequence for each file to reduce load times. -->
-
-  <Operation Class="PatchOperationSequence">
-  <success>Always</success>
-  <operations>
-
-EOF
-
-# Step through source xml.
-# Generate patch for each known defName/blaster in the same order.
-my($weapon, $data, $key, $val, $ref);
-foreach my $entry ( @{$source->{ThingDef}} )
-{
-    next unless exists($entry->{defName}) && exists $CEDATA{$entry->{defName}};
-    $weapon = $entry->{defName};
-    $data = $CEDATA{$entry->{defName}};
-
-    # Add CE bulk
-    print OUTFILE (<<EOF);
-        <!-- ========== $weapon ========== -->
-
-	<li Class="PatchOperationAdd">
-	    <xpath>Defs/ThingDef[defName="$weapon"]/statBases</xpath>
-	    <value>
-                <Bulk>$data->{Bulk}</Bulk>
-	    </value>
-	</li>
-
-EOF
-
-    # Add CE weapon tags
-    if (exists $data->{weaponTags})
-    {
-        print OUTFILE (<<EOF);
-        <!-- Insert CE weapon tags. Create node if needed -->
-	<li Class="PatchOperationSequence">
-  	<success>Always</success>
-  	<operations>
-    	    <li Class="PatchOperationTest">
-      	        <xpath>Defs/ThingDef[defName="$weapon"]/weaponTags</xpath>
-      	        <success>Invert</success>
-    	    </li>
-    	    <li Class="PatchOperationAdd">
-      	        <xpath>Defs/ThingDef[defName="$weapon"]</xpath>
-      	            <value>
-        	        <weaponTags />
-      	            </value>
-    	    </li>
-  	</operations>
-	</li>
-
-	<li Class="PatchOperationAdd">
-	    <xpath>Defs/ThingDef[defName="$weapon"]/weaponTags</xpath>
-	    <value>
-EOF
-        foreach $key (@{$data->{weaponTags}})
-	{
-            print OUTFILE (<<EOF);
-                <li>$key</li>
-EOF
-	}
-
-        print OUTFILE (<<EOF);
-	    </value>
-	</li>
-
-EOF
-    }
-
-    # Add CE attribute to tools node entries
-    print OUTFILE (<<EOF);
-	<!-- Add CE attribute to all tools entries -->
-	<li Class="PatchOperationAttributeSet">
-	    <xpath>Defs/ThingDef[defName="$weapon"]/tools/li</xpath>
-	    <attribute>Class</attribute>
-	    <value>CombatExtended.ToolCE</value>
-	</li>
-
-EOF
-    # Add armor penetration to all tools entries
-    if (exists $entry->{tools} && exists $entry->{tools}->{li})
-    {
-	foreach $ref ( @{$entry->{tools}->{li}} )
-	{
-            # AP based on capacity (default to a17 value || 0.01)
-	    # (default to non-zero so we can check value in-game)
-	    $key = $ref->{capacities}->{li}->[0];
-	    $val = $key && $AP{$key} ? $AP{$key} : ($data->{armorPenetration} || 0.01);
-            print OUTFILE (<<EOF);
-	<li Class="PatchOperationAdd">
-	    <xpath>Defs/ThingDef[defName="$weapon"]/tools/li[label="$ref->{label}"]</xpath>
-	    <value>
-		<armorPenetration>$val</armorPenetration>
-	    </value>
-	</li>
-
-EOF
-        }
-    }
-
-    # Add crit/parry chances as offsets
-    # Add this last so that we can verify in-game that all previous sequence elements
-    # were successful (check these attributes on weapons).
-    print OUTFILE (<<EOF);
-	 <!-- Crit/Parry chances, modeled after CE patches for core melee weapons -->
-         <li Class="PatchOperationAdd">
-             <xpath>Defs/ThingDef[defName="$weapon"]</xpath>
-             <value>
-                 <equippedStatOffsets>
-                     <MeleeCritChance>$data->{MeleeCritChance}</MeleeCritChance>
-                     <MeleeParryChance>$data->{MeleeParryChance}</MeleeParryChance>
-                 </equippedStatOffsets>
-             </value>
-         </li>
-
-EOF
-}
-
-# Add armor penetration to all tools node entries
-
-# Closer
-print OUTFILE (<<EOF);
-  </operations>  <!-- end sequence -->
-  </Operation>   <!-- end sequence -->
-
-</Patch>
-
-EOF
-
-close(OUTFILE) or warn("WARN: close $OUTFILE: $!\n");
+$patcher->generate_patches or die("ERR: generate_patches: $!\n");
 
 exit(0);
 
