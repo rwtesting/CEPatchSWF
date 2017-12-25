@@ -2,6 +2,7 @@
 <ModMetaData>
   <name>[test] Star Wars Factions + CE compatibility patch (b18)</name>
   <author>rwtesting</author>
+  <url>https://github.com/rwtesting/CEPatchSWF</url>
   <targetVersion>0.18.1722</targetVersion>
   <description>Combat Extended compatibility patch for Star Wars Factions (b18).
 
