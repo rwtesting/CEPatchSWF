@@ -80,14 +80,14 @@
               <li>CE_AI_AssaultWeapon</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>3</reloadTime>
-              <magazineSize>24</magazineSize>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>24</magazineSize>
+              <reloadTime>3</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>TRUE</aiUseBurstMode>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aimedBurstShotCount>3</aimedBurstShotCount>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -185,13 +185,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>3</reloadTime>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
               <magazineSize>15</magazineSize>
+              <reloadTime>3</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -289,14 +290,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <magazineSize>16</magazineSize>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>16</magazineSize>
               <reloadTime>2</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>TRUE</aiUseBurstMode>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aimedBurstShotCount>2</aimedBurstShotCount>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -394,14 +395,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>3</reloadTime>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
               <magazineSize>20</magazineSize>
+              <reloadTime>3</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aimedBurstShotCount>2</aimedBurstShotCount>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aiUseBurstMode>TRUE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -504,8 +505,9 @@
               <reloadTime>3.5</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -603,13 +605,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <magazineSize>14</magazineSize>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>14</magazineSize>
               <reloadTime>3.2</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -712,8 +715,9 @@
               <reloadTime>3.7</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -811,13 +815,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <magazineSize>16</magazineSize>
               <ammoSet>AmmoSet_12Gauge</ammoSet>
+              <magazineSize>16</magazineSize>
               <reloadTime>4</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -915,13 +920,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>6</reloadTime>
               <ammoSet>AmmoSet_84x246mmR</ammoSet>
               <magazineSize>8</magazineSize>
+              <reloadTime>6</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
-             <aiAimMode>AimedShot</aiAimMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -1018,13 +1024,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>2.4</reloadTime>
-              <magazineSize>18</magazineSize>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>18</magazineSize>
+              <reloadTime>2.4</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -1121,14 +1128,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>2.4</reloadTime>
-              <magazineSize>20</magazineSize>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>20</magazineSize>
+              <reloadTime>2.4</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>TRUE</aiUseBurstMode>
-             <aimedBurstShotCount>2</aimedBurstShotCount>
-             <aiAimMode>AimedShot</aiAimMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -1226,14 +1233,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>2.4</reloadTime>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
               <magazineSize>24</magazineSize>
+              <reloadTime>2.4</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>TRUE</aiUseBurstMode>
-             <aiAimMode>AimedShot</aiAimMode>
-             <aimedBurstShotCount>3</aimedBurstShotCount>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -1330,13 +1337,14 @@
               <li>CE_Sidearm</li>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>1.9</reloadTime>
-              <magazineSize>30</magazineSize>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>30</magazineSize>
+              <reloadTime>1.9</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
-             <aiAimMode>AimedShot</aiAimMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 

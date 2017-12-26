@@ -79,12 +79,14 @@
         <weaponTags>
         </weaponTags>
         <AmmoUser>
-              <reloadTime>3</reloadTime>
               <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
               <magazineSize>6</magazineSize>
+              <reloadTime>3</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -179,12 +181,14 @@
         <weaponTags>
         </weaponTags>
         <AmmoUser>
-              <magazineSize>6</magazineSize>
               <ammoSet>AmmoSet_SWBigPlasmaGasCartridge</ammoSet>
+              <magazineSize>6</magazineSize>
               <reloadTime>3</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 
@@ -279,12 +283,14 @@
         <weaponTags>
         </weaponTags>
         <AmmoUser>
-              <magazineSize>10</magazineSize>
               <ammoSet>AmmoSet_SWPlasmaGasCartridge</ammoSet>
+              <magazineSize>10</magazineSize>
               <reloadTime>1.2</reloadTime>
         </AmmoUser>
         <FireModes>
-             <aiUseBurstMode>FALSE</aiUseBurstMode>
+             <ammoSet></ammoSet>
+             <magazineSize></magazineSize>
+             <reloadTime></reloadTime>
         </FireModes>
     </li>
 

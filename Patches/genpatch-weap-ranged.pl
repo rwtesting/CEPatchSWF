@@ -2,9 +2,6 @@
 use strict;
 use warnings;
 
-use XML::Simple;
-use File::Basename qw(basename);
-
 use lib "../../_lib";
 use RWPatcher::Weapons::Ranged;
 
