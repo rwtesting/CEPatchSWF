@@ -13,7 +13,7 @@ Notes:
 Ammo (for Star Wars Factions guns):
 - Nym's Slugthrower: 12 gauge shell
 - Launcher Pistol  : 84x246mmR
-- All other guns   : Plasma Gas Cartridges (including walker guns)
+- All other guns   : Plasma Gas Cartridges (requires Charged Shot research to craft)
 
 Changes - Pawnkinds:
 - Add ammo min/max.

@@ -43,15 +43,13 @@
 	
 	<!-- ==================== Ammo ========================== -->
 
-  <ThingDef Name="SWPlasmaGasCartridgeBase" ParentName="SmallAmmoBase" Abstract="True">
+  <ThingDef Name="SWPlasmaGasCartridgeBase" ParentName="SpacerSmallAmmoBase" Abstract="True">
 <!-- Class="CombatExtended.AmmoDef"> -->
 <!--    <thingClass>CombatExtended.AmmoThing</thingClass> -->
     <description>Charged shot ammo used by advanced assault rifle designs.</description>
     <statBases>
       <Mass>0.01</Mass>
       <Bulk>0.03</Bulk>
-      <MaxHitPoints>100</MaxHitPoints>
-      <Flammability>1</Flammability>
     </statBases>
     <tradeTags>
       <li>CE_Ammo</li>
@@ -61,32 +59,6 @@
     <thingCategories>
       <li>AmmoSWPlasmaGasCartridge</li>
     </thingCategories>
-    <category>Item</category>
-    <resourceReadoutPriority>Middle</resourceReadoutPriority>
-    <useHitPoints>true</useHitPoints>
-    <selectable>true</selectable>
-    <altitudeLayer>Item</altitudeLayer>
-    <stackLimit>750</stackLimit>
-    <soundInteract>Metal_Drop</soundInteract>
-    <soundDrop>Metal_Drop</soundDrop>
-<!-- Toggled by AmmoInjector.cs
-    <menuHidden>True</menuHidden>		
-    <destroyOnDrop>True</destroyOnDrop>
--->
-    <comps>
-      <li Class="CompProperties_Forbiddable"/>
-    </comps>
-    <alwaysHaulable>true</alwaysHaulable>
-    <drawGUIOverlay>true</drawGUIOverlay>
-    <rotatable>false</rotatable>
-    <pathCost>15</pathCost>
-    <tradeability>Sellable</tradeability>
-    <tickerType>Normal</tickerType>
-    <cookOffSpeed>0.2</cookOffSpeed>
-    <cookOffFlashScale>10</cookOffFlashScale>
-    <cookOffSound>ShotAssaultRifle</cookOffSound>
-    <cookOffTailSound>GunTail_Medium</cookOffTailSound>
-    <techLevel>Spacer</techLevel>
   </ThingDef>
 
   <ThingDef ParentName="SWPlasmaGasCartridgeBase">
@@ -258,19 +230,7 @@
     <products>
       <Ammo_SWPlasmaGasCartridge>100</Ammo_SWPlasmaGasCartridge>
     </products>
-
-   <workSpeedStat>SmithingSpeed</workSpeedStat>
-   <effectWorking>Cook</effectWorking>
-   <soundWorking>Recipe_Machining</soundWorking>
-   <allowMixingIngredients>true</allowMixingIngredients>
-   <workAmount>2500</workAmount>
-   <workSkill>Crafting</workSkill>
-   <targetCountAdjustment>100</targetCountAdjustment>
-               <recipeUsers>
-         <!-- Need an empty list here or the ammo injector will throw a null ref exception -->
-               </recipeUsers>
-               <conceptLearned>CE_AmmoCrafting</conceptLearned>
-               <unfinishedThingDef>UnfinishedAmmo</unfinishedThingDef>
+    <workAmount>2500</workAmount>
   </RecipeDef>
 
   <RecipeDef ParentName="ChargeAmmoRecipeBase">
@@ -313,6 +273,7 @@
     <products>
       <Ammo_SWPlasmaGasCartridge_AP>100</Ammo_SWPlasmaGasCartridge_AP>
     </products>
+    <workAmount>3000</workAmount>
   </RecipeDef>
 
   <RecipeDef ParentName="ChargeAmmoRecipeBase">
@@ -347,6 +308,7 @@
     <products>
       <Ammo_SWPlasmaGasCartridge_Ion>100</Ammo_SWPlasmaGasCartridge_Ion>
     </products>
+    <workAmount>3000</workAmount>
   </RecipeDef>
 	
 </Defs>
