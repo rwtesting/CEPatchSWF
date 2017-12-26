@@ -86,7 +86,7 @@
     <cookOffFlashScale>10</cookOffFlashScale>
     <cookOffSound>ShotAssaultRifle</cookOffSound>
     <cookOffTailSound>GunTail_Medium</cookOffTailSound>
-    <techLevel>Industrial</techLevel>
+    <techLevel>Spacer</techLevel>
   </ThingDef>
 
   <ThingDef ParentName="SWPlasmaGasCartridgeBase">
@@ -263,7 +263,7 @@
    <effectWorking>Cook</effectWorking>
    <soundWorking>Recipe_Machining</soundWorking>
    <allowMixingIngredients>true</allowMixingIngredients>
-   <workAmount>200</workAmount>
+   <workAmount>2500</workAmount>
    <workSkill>Crafting</workSkill>
    <targetCountAdjustment>100</targetCountAdjustment>
                <recipeUsers>
