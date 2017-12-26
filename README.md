@@ -29,6 +29,9 @@ Changes - Ranged weapons:
 - Add SightsEfficiency, ShotSpread, SwayFactor, fire modes, ammo info (a17 values)
 - Add b18 tools(melee) nodes and melee armor penetration (using core weapon values).
 
+Changes - Walkers:
+- Patched as mod animals, with relevant CE values, etc.
+
 Credit for patch textures, a17 SWF+CE values, and a17 SWF+CE patch belong to jaeger972.
 The a17 patch can be found here:
   http://steamcommunity.com/sharedfiles/filedetails/?id=974909952
