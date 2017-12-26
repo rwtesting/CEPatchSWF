@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Patch base walker class to add CE inventory tab and b18 combat tab -->
+
+  <Operation Class="PatchOperationSequence">
+  <success>Always</success>
+  <operations>
+
+	<!-- Walkers don't define ITab_Pawn_Gear: add, don't replace -->
+	<!-- Also add b18 combat tab to make debugging easier -->
+        <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[@Name="BaseWalker"]/inspectorTabs</xpath>
+                <value>
+                        <li>CombatExtended.ITab_Inventory</li>
+                        <li>ITab_Pawn_Combat</li>
+                </value>
+        </li>
+
+        <li Class="PatchOperationAdd">
+                <xpath>Defs/ThingDef[@Name="BaseWalker"]/comps</xpath>
+                <value>
+			<li>
+			    <compClass>CombatExtended.CompPawnGizmo</compClass>
+			</li>
+                        <li Class="CombatExtended.CompProperties_Inventory" />
+                </value>
+        </li>
+
+
+  </operations>  <!-- end sequence -->
+  </Operation>   <!-- end sequence -->
+
+</Patch>
+

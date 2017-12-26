@@ -33,13 +33,10 @@ my @PAWNKINDS = (
     PJ_BountyHunter
     ) ],
     [ qw(
-    SWFactions_WalkerThing
     SWFactions_WalkerKind
-    SWFactions_ATATThing
     SWFactions_ATATKind
     ) ],
     [ qw(
-    SWFactions_SpeederThing
     SWFactions_SpeederKindImp
     SWFactions_SpeederKindReb
     ) ],
