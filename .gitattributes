@@ -1,0 +1,2 @@
+*.pl export-ignore
+.git* export-ignore
