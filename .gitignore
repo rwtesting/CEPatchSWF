@@ -1,9 +1,8 @@
+*.o
+*.zip
+*.tar.gz
 *.suo
 *.cache
 Thumbs.db
-*.pl
-*.py
 *.txt
-*.zip
-*.tar.gz
 */_test
