@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Warning: This patch will break if original mod moves weapons into diff files.
+         To fix this, please re-run script using new mod file paths. -->
+
+  <Operation Class="PatchOperationSequence">
+  <success>Always</success>
+  <operations>
+
+    <li Class="CombatExtended.PatchOperationFindMod">
+        <modName>Star Wars - Factions</modName>
+    </li>
+
+    <!-- ========== PJ_ImpInspector ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_ImpInspector"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_ImpTaxOfficer ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_ImpTaxOfficer"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_ImpSoldier ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_ImpSoldier"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_ImpTrader ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_ImpTrader"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_Stormtrooper ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_Stormtrooper"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_StormtrooperSO ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_StormtrooperSO"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_ImpCommander ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_ImpCommander"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_ScoutTrooper ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_ScoutTrooper"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+  </operations>  <!-- end sequence -->
+  </Operation>   <!-- end sequence -->
+
+</Patch>
+

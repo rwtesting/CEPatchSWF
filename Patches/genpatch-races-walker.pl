@@ -53,9 +53,10 @@ foreach my $sourcefile (@SOURCEFILES)
 {
     $patcher = new RWPatcher::Animals(
         #sourcemod  => $SOURCEMOD,
-        sourcefile => $sourcefile,
-        cedata     => \%PATCHABLES,
+        sourcefile  => $sourcefile,
+        cedata      => \%PATCHABLES,
 	expected_parents => "BaseWalker",
+	patchdir    => "RaceDefs_Walker",  # don't overwrite pawnkind defs
     ) or die("ERR: Failed new RWPatcher::Animals: $!\n");
 
     $patcher->generate_patches();

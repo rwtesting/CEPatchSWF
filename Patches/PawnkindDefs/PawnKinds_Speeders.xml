@@ -8,91 +8,35 @@
   <success>Always</success>
   <operations>
 
-    <!-- ========== SWFactions_SpeederThing ========== -->
+    <li Class="CombatExtended.PatchOperationFindMod">
+        <modName>Star Wars - Factions</modName>
+    </li>
+
+    <!-- ========== SWFactions_SpeederKindImp ========== -->
 
     <li Class="PatchOperationAddModExtension">
-    <xpath>Defs/ThingDef[defName="SWFactions_SpeederThing"]</xpath>
+    <xpath>Defs/PawnKindDef[defName="SWFactions_SpeederKindImp"]</xpath>
     <value>
-        <li Class="CombatExtended.RacePropertiesExtensionCE">
-            <bodyShape>Quadruped</bodyShape>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>100</min>
+                <max>200</max>
+            </primaryMagazineCount>
         </li>
     </value>
     </li>
 
-    <!-- Patch SWFactions_SpeederThing : Verbs (convert to tools) -->
+    <!-- ========== SWFactions_SpeederKindReb ========== -->
 
-    <!-- Add tools node if it doesn't exist -->
-    <li Class="PatchOperationSequence">
-    <success>Always</success>
-    <operations>
-        <li Class="PatchOperationTest">
-        <xpath>/Defs/ThingDef[defName="SWFactions_SpeederThing"]/tools</xpath>
-            <success>Invert</success>
-        </li>
-        <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="SWFactions_SpeederThing"]</xpath>
-            <value>
-                <tools />
-            </value>
-        </li>
-    </operations>
-    </li>
-
-    <!-- Convert old verbs to new tools nodes -->
-    <li Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="SWFactions_SpeederThing"]/tools</xpath>
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="SWFactions_SpeederKindReb"]</xpath>
     <value>
-        <li Class="CombatExtended.ToolCE">
-            <label>left blade</label>
-            <id>leftbladeblunt</id>
-            <verbClass>CombatExtended.Verb_MeleeAttackCE</verbClass>
-            <cooldownTime>4.65</cooldownTime>
-            <linkedBodyPartsGroup>LeftBlade</linkedBodyPartsGroup>
-            <power>40</power>
-            <capacities><li>Blunt</li></capacities>
-            <armorPenetration>0.133</armorPenetration>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>100</min>
+                <max>200</max>
+            </primaryMagazineCount>
         </li>
-        <li Class="CombatExtended.ToolCE">
-            <label>right blade</label>
-            <id>rightbladecut</id>
-            <verbClass>CombatExtended.Verb_MeleeAttackCE</verbClass>
-            <cooldownTime>4.65</cooldownTime>
-            <linkedBodyPartsGroup>RightBlade</linkedBodyPartsGroup>
-            <power>40</power>
-            <capacities><li>Cut</li></capacities>
-            <armorPenetration>0.207</armorPenetration>
-        </li>
-        <li Class="CombatExtended.ToolCE">
-            <label>head</label>
-            <id>headattacktoolblunt</id>
-            <verbClass>CombatExtended.Verb_MeleeAttackCE</verbClass>
-            <commonality>0.01</commonality>
-            <cooldownTime>3.65</cooldownTime>
-            <linkedBodyPartsGroup>HeadAttackTool</linkedBodyPartsGroup>
-            <power>7</power>
-            <capacities><li>Blunt</li></capacities>
-            <armorPenetration>0.133</armorPenetration>
-        </li>
-    </value>
-    </li>
-
-    <!-- Delete old verbs node (causes CE errors) -->
-    <li Class="PatchOperationRemove">
-    <xpath>Defs/ThingDef[defName="SWFactions_SpeederThing"]/verbs</xpath>
-    </li>
-
-    <!-- Patch SWFactions_SpeederThing : Stats -->
-
-    <!-- Patch statBases last so that we know all previous sequence entries succeeded.
-         These values are easy to check in-game. -->
-    <li Class="PatchOperationAdd">
-    <xpath>Defs/ThingDef[defName="SWFactions_SpeederThing"]/statBases</xpath>
-    <value>
-        <MeleeDodgeChance>0.08</MeleeDodgeChance>
-        <MeleeCritChance>0.79</MeleeCritChance>
-        <ArmorRating_Blunt>0.21</ArmorRating_Blunt>
-        <ArmorRating_Sharp>0.21</ArmorRating_Sharp>
-
     </value>
     </li>
 

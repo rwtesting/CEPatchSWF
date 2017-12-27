@@ -2,107 +2,47 @@
 use strict;
 use warnings;
 
-# pawnkinds, grouped by file (from original mod)
-# 1 patch sequence per file for faster load times
-my @PAWNKINDS = (
-    [ qw(
-    PJ_ImpInspector
-    PJ_ImpTaxOfficer
-    PJ_ImpSoldier
-    PJ_ImpTrader
-    PJ_Stormtrooper
-    PJ_StormtrooperSO
-    PJ_ImpCommander
-    PJ_ScoutTrooper
-    ) ],
-    [ qw(
-    PJ_RebVillager
-    PJ_RebCouncilman
-    PJ_RebTrader
-    PJ_RebGuard
-    PJ_RebSoldier
-    PJ_RebLAVSoldier
-    PJ_RebNadeSoldier
-    PJ_RebPilot
-    PJ_RebMerc
-    ) ],
-    [ qw(
-    PJ_ScumSoldier
-    PJ_Ruffian
-    PJ_ScumBoss
-    PJ_BountyHunter
-    ) ],
-    [ qw(
-    SWFactions_WalkerKind
-    SWFactions_ATATKind
-    ) ],
-    [ qw(
-    SWFactions_SpeederKindImp
-    SWFactions_SpeederKindReb
-    ) ],
+use lib "../../_lib";
+use RWPatcher::Pawnkinds;
 
+# Generate CE patches for pawnkind files.
+
+my $SOURCEMOD = "Star Wars - Factions";
+
+my @SOURCEFILES = qw(
+    ../../918227266/Defs/PawnkindDefs/PawnKinds_Imp.xml
+    ../../918227266/Defs/PawnkindDefs/PawnKinds_ImpWalkers.xml
+    ../../918227266/Defs/PawnkindDefs/PawnKinds_Rebel.xml
+    ../../918227266/Defs/PawnkindDefs/PawnKinds_Scum.xml
+    ../../918227266/Defs/PawnkindDefs/PawnKinds_Speeders.xml
 );
 
-my $OUTFILE = "./PawnkindDefs/Pawnkinds-CE-patch.xml";
-open(OUTFILE, ">", $OUTFILE) or die("ERR: open/write $OUTFILE: $!\n");
-print("Generating patch file: $OUTFILE\n");
+my %CEDATA = (
+    SWFactions_WalkerKind	=> {AmmoMin => 100, AmmoMax => 200},
+    SWFactions_ATATKind		=> {AmmoMin => 100, AmmoMax => 200},
+    SWFactions_SpeederKindImp	=> {AmmoMin => 100, AmmoMax => 200},
+    SWFactions_SpeederKindReb	=> {AmmoMin => 100, AmmoMax => 200},
+);
 
-print OUTFILE (<<EOF);
-<?xml version="1.0" encoding="utf-8" ?>
-<Patch>
-
-  <!-- One sequence per xml file from original mod for faster load times.
-       Breaks if mod author changes pawnkind-file relationship. -->
-
-EOF
-
-my($pawngroup, $pawnkind, $min, $max);
-my $sequence_num = 1;
-foreach $pawngroup (@PAWNKINDS)
+my $patcher;
+foreach my $sourcefile (@SOURCEFILES)
 {
-    print OUTFILE (<<EOF);
-  <!-- ========== Sequence #$sequence_num ========== -->
+    $patcher = new RWPatcher::Pawnkinds(
+	AmmoMin    => 3,
+	AmmoMax    => 5,
+        sourcemod  => $SOURCEMOD,
+        sourcefile => $sourcefile,
+        cedata     => \%CEDATA,
+        expected_parents => [ qw(
+            ImpBase
+            PJ_RebelPawnBase
+            PJ_RebVillager
+            PJ_SVBase
+	), "" ],
+    ) or die("ERR: Failed new RWPatcher::Pawnkinds: $!\n");
 
-  <Operation Class="PatchOperationSequence">
-  <success>Always</success>
-  <operations>
-
-EOF
-    foreach $pawnkind (@$pawngroup)
-    {
-	$min = $pawnkind =~ /^SWFactions/ ? 100 : 3;  # SWFactions = mech
-	$max = $pawnkind =~ /^SWFactions/ ? 100 : 5;  # SWFactions = mech
-        print OUTFILE (<<EOF);
-  <li Class="PatchOperationAddModExtension">
-    <xpath>Defs/PawnKindDef[defName="$pawnkind"]</xpath>
-    <value>
-      <li Class="CombatExtended.LoadoutPropertiesExtension">
-        <primaryMagazineCount>
-          <min>$min</min>
-          <max>$max</max>
-        </primaryMagazineCount>
-      </li>
-    </value>
-  </li>
-
-EOF
-    }
-
-    # closer for this sequence
-    print OUTFILE (<<EOF);
-  </operations>  <!-- end sequence #$sequence_num -->
-  </Operation>   <!-- end sequence #$sequence_num -->
-
-EOF
-  ++$sequence_num;
+    $patcher->generate_patches();
 }
-
-print OUTFILE (<<EOF);
-</Patch>
-
-EOF
-
-close(OUTFILE) or warn("WARN: close $OUTFILE: $!\n");
 
 exit(0);
 

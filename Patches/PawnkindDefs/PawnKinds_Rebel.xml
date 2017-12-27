@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Patch>
+
+    <!-- Warning: This patch will break if original mod moves weapons into diff files.
+         To fix this, please re-run script using new mod file paths. -->
+
+  <Operation Class="PatchOperationSequence">
+  <success>Always</success>
+  <operations>
+
+    <li Class="CombatExtended.PatchOperationFindMod">
+        <modName>Star Wars - Factions</modName>
+    </li>
+
+    <!-- ========== PJ_RebVillager ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebVillager"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebCouncilman ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebCouncilman"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebTrader ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebTrader"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebGuard ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebGuard"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebSoldier ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebSoldier"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebLAVSoldier ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebLAVSoldier"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebNadeSoldier ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebNadeSoldier"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebPilot ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebPilot"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+    <!-- ========== PJ_RebMerc ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[defName="PJ_RebMerc"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
+  </operations>  <!-- end sequence -->
+  </Operation>   <!-- end sequence -->
+
+</Patch>
+
