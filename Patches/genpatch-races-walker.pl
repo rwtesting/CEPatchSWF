@@ -55,9 +55,8 @@ foreach my $sourcefile (@SOURCEFILES)
         #sourcemod  => $SOURCEMOD,
         sourcefile => $sourcefile,
         cedata     => \%PATCHABLES,
+	expected_parents => "BaseWalker",
     ) or die("ERR: Failed new RWPatcher::Animals: $!\n");
-
-    $patcher->expected_parent("BaseWalker"); # patch any element with this parent class
 
     $patcher->generate_patches();
 }

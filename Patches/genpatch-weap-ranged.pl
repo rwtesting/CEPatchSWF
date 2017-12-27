@@ -420,9 +420,10 @@ my $patcher;
 foreach my $sourcefile (@SOURCEFILES)
 {
     $patcher = new RWPatcher::Weapons::Ranged(
+        #sourcemod  => $SOURCEMOD,
         sourcefile => $sourcefile,
         cedata     => \%CEDATA,
-        #sourcemod  => $SOURCEMOD,
+        expected_parents => [ qw(BaseImpMakeableGun PJ_Veh_GunBaseMakeH PJ_Veh_GunBaseMakeS) ],
     ) or die("ERR: Failed new RWPatcher::Weapons::Ranged: $!\n");
 
     $patcher->generate_patches();
