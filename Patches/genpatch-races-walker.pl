@@ -48,15 +48,19 @@ my %PATCHABLES = (
     SWFactions_SpeederThing	=> \%DEF,
 );
 
-my $patcher = new RWPatcher::Animals(
-    #sourcemod   => $SOURCEMOD,
-    sourcefiles => \@SOURCEFILES,
-    cedata      => \%PATCHABLES,
-) or die("ERR: Failed new RWPatcher::Animals: $!\n");
+my $patcher;
+foreach my $sourcefile (@SOURCEFILES)
+{
+    $patcher = new RWPatcher::Animals(
+        #sourcemod  => $SOURCEMOD,
+        sourcefile => $sourcefile,
+        cedata     => \%PATCHABLES,
+    ) or die("ERR: Failed new RWPatcher::Animals: $!\n");
 
-$patcher->expected_parent("BaseWalker"); # patch any element with this parent class
+    $patcher->expected_parent("BaseWalker"); # patch any element with this parent class
 
-$patcher->generate_patches();
+    $patcher->generate_patches();
+}
 
 exit(0);
 

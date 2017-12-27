@@ -416,13 +416,17 @@ my %CEDATA = (
 
 );
 
-my $patcher = new RWPatcher::Weapons::Ranged(
-    sourcefiles => \@SOURCEFILES,
-    cedata      => \%CEDATA,
-    #sourcemod	=> $SOURCEMOD,
-) or die("ERR: Failed new RWPatcher::Weapons::Ranged: $!\n");
+my $patcher;
+foreach my $sourcefile (@SOURCEFILES)
+{
+    $patcher = new RWPatcher::Weapons::Ranged(
+        sourcefile => $sourcefile,
+        cedata     => \%CEDATA,
+        #sourcemod  => $SOURCEMOD,
+    ) or die("ERR: Failed new RWPatcher::Weapons::Ranged: $!\n");
 
-$patcher->generate_patches();
+    $patcher->generate_patches();
+}
 
 exit(0);
 

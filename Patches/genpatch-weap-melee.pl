@@ -26,6 +26,7 @@ use RWPatcher::Weapons::Melee;
 #
 
 my $SOURCEFILE = "../../918227266/Defs/WeaponDefs_Melee/PJ_VibroWeps.xml";
+my $SOURCEMOD  = "Star Wars - Factions";
 
 # CE Values for each melee weapon, from a17 patch by jaeger972.
 my %CEDATA = (
@@ -81,8 +82,9 @@ my %CEDATA = (
 );
 
 my $patcher = new RWPatcher::Weapons::Melee(
-    sourcefiles => [ $SOURCEFILE ],
-    cedata      => \%CEDATA,
+    #sourcemod => $SOURCEMOD,
+    sourcefile => $SOURCEFILE,
+    cedata     => \%CEDATA,
 ) or die("ERR: Failed new RWPatcher::Weapons::Melee: $!\n");
 
 $patcher->generate_patches;
