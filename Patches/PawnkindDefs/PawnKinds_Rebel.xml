@@ -8,6 +8,20 @@
   <success>Always</success>
   <operations>
 
+    <!-- ========== PJ_RebelPawnBase ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[@Name="PJ_RebelPawnBase"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
     <!-- ========== PJ_RebVillager ========== -->
 
     <li Class="PatchOperationAddModExtension">

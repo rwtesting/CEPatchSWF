@@ -8,6 +8,20 @@
   <success>Always</success>
   <operations>
 
+    <!-- ========== ImpAbstractBase ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[@Name="ImpAbstractBase"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
     <!-- ========== PJ_ImpInspector ========== -->
 
     <li Class="PatchOperationAddModExtension">

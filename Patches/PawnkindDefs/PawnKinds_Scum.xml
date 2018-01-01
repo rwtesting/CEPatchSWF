@@ -8,6 +8,20 @@
   <success>Always</success>
   <operations>
 
+    <!-- ========== PJ_SVBase ========== -->
+
+    <li Class="PatchOperationAddModExtension">
+    <xpath>Defs/PawnKindDef[@Name="PJ_SVBase"]</xpath>
+    <value>
+        <li Class="CombatExtended.LoadoutPropertiesExtension">
+            <primaryMagazineCount>
+                <min>3</min>
+                <max>5</max>
+            </primaryMagazineCount>
+        </li>
+    </value>
+    </li>
+
     <!-- ========== PJ_ScumSoldier ========== -->
 
     <li Class="PatchOperationAddModExtension">
