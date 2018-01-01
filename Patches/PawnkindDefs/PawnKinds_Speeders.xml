@@ -8,10 +8,6 @@
   <success>Always</success>
   <operations>
 
-    <li Class="CombatExtended.PatchOperationFindMod">
-        <modName>Star Wars - Factions</modName>
-    </li>
-
     <!-- ========== SWFactions_SpeederKindImp ========== -->
 
     <li Class="PatchOperationAddModExtension">

@@ -8,10 +8,6 @@
   <success>Always</success>
   <operations>
 
-    <li Class="CombatExtended.PatchOperationFindMod">
-        <modName>Star Wars - Factions</modName>
-    </li>
-
     <!-- ========== PJ_ImpInspector ========== -->
 
     <li Class="PatchOperationAddModExtension">

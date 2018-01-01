@@ -26,11 +26,11 @@
     <success>Always</success>
     <operations>
         <li Class="PatchOperationTest">
-        <xpath>/Defs/ThingDef[defName="SWFactions_SpeederThing"]/tools</xpath>
+        <xpath>Defs/ThingDef[defName="SWFactions_SpeederThing"]/tools</xpath>
             <success>Invert</success>
         </li>
         <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="SWFactions_SpeederThing"]</xpath>
+        <xpath>Defs/ThingDef[defName="SWFactions_SpeederThing"]</xpath>
             <value>
                 <tools />
             </value>
@@ -85,6 +85,7 @@
 
     <!-- Patch statBases last so that we know all previous sequence entries succeeded.
          These values are easy to check in-game. -->
+
     <li Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="SWFactions_SpeederThing"]/statBases</xpath>
     <value>

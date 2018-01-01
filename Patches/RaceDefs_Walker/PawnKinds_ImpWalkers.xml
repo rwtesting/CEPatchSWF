@@ -26,11 +26,11 @@
     <success>Always</success>
     <operations>
         <li Class="PatchOperationTest">
-        <xpath>/Defs/ThingDef[defName="SWFactions_WalkerThing"]/tools</xpath>
+        <xpath>Defs/ThingDef[defName="SWFactions_WalkerThing"]/tools</xpath>
             <success>Invert</success>
         </li>
         <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="SWFactions_WalkerThing"]</xpath>
+        <xpath>Defs/ThingDef[defName="SWFactions_WalkerThing"]</xpath>
             <value>
                 <tools />
             </value>
@@ -85,6 +85,7 @@
 
     <!-- Patch statBases last so that we know all previous sequence entries succeeded.
          These values are easy to check in-game. -->
+
     <li Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="SWFactions_WalkerThing"]/statBases</xpath>
     <value>
@@ -114,11 +115,11 @@
     <success>Always</success>
     <operations>
         <li Class="PatchOperationTest">
-        <xpath>/Defs/ThingDef[defName="SWFactions_ATATThing"]/tools</xpath>
+        <xpath>Defs/ThingDef[defName="SWFactions_ATATThing"]/tools</xpath>
             <success>Invert</success>
         </li>
         <li Class="PatchOperationAdd">
-        <xpath>/Defs/ThingDef[defName="SWFactions_ATATThing"]</xpath>
+        <xpath>Defs/ThingDef[defName="SWFactions_ATATThing"]</xpath>
             <value>
                 <tools />
             </value>
@@ -173,6 +174,7 @@
 
     <!-- Patch statBases last so that we know all previous sequence entries succeeded.
          These values are easy to check in-game. -->
+
     <li Class="PatchOperationAdd">
     <xpath>Defs/ThingDef[defName="SWFactions_ATATThing"]/statBases</xpath>
     <value>

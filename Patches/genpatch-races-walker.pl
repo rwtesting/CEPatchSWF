@@ -3,7 +3,7 @@ use strict;
 use warnings;
 
 use lib $ENV{RWPATCHER_LIB};
-use RWPatcher::Animals;
+use RWPatcher::Races::Animals;
 
 #
 # SWF Walkers need to be patched as modded animals (add CE armor pen, bodyShape, etc.).
@@ -51,13 +51,13 @@ my %PATCHABLES = (
 my $patcher;
 foreach my $sourcefile (@SOURCEFILES)
 {
-    $patcher = new RWPatcher::Animals(
+    $patcher = new RWPatcher::Races::Animals(
         #sourcemod  => $SOURCEMOD,
         sourcefile  => $sourcefile,
         cedata      => \%PATCHABLES,
 	expected_parents => "BaseWalker",
 	patchdir    => "RaceDefs_Walker",  # don't overwrite pawnkind defs
-    ) or die("ERR: Failed new RWPatcher::Animals: $!\n");
+    ) or die("ERR: Failed new RWPatcher::Races::Animals: $!\n");
 
     $patcher->generate_patches();
 }
