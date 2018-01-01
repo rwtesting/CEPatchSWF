@@ -2,7 +2,7 @@
 use strict;
 use warnings;
 
-use lib "../../_lib";
+use lib $ENV{RWPATCHER_LIB};
 use RWPatcher::Pawnkinds;
 
 # Generate CE patches for pawnkind files.
